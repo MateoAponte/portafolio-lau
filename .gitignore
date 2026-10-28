@@ -1,0 +1,4 @@
+.agents/**
+.taste-skill/**
+node_modules/**
+dist/**

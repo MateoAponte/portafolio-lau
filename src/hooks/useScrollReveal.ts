@@ -11,12 +11,12 @@ export function useScrollReveal() {
     if (!("IntersectionObserver" in window)) return;
 
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let observer: IntersectionObserver | undefined;
+    let observers: IntersectionObserver[] = [];
     const revealed = new Set<HTMLElement>();
     let resizeFrame = 0;
 
     const showAll = () => {
-      observer?.disconnect();
+      observers.forEach(observer => observer.disconnect());
       elements.forEach(element => {
         revealed.add(element);
         element.classList.remove("reveal-pending", "reveal-visible");
@@ -24,11 +24,9 @@ export function useScrollReveal() {
     };
 
     const setup = () => {
-      observer?.disconnect();
+      observers.forEach(observer => observer.disconnect());
       if (preference.matches) { showAll(); return; }
 
-      // rootMargin does not accept vh; percentages use width, so convert 15vh to px.
-      const triggerInset = window.innerHeight * 0.15;
 
       // Observe an unclipped wrapper for wipe reveals, not their animated mask.
       const targets = new Map<Element, HTMLElement[]>();
@@ -38,22 +36,29 @@ export function useScrollReveal() {
         targets.set(target, [...(targets.get(target) ?? []), element]);
       });
 
-      observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          targets.get(entry.target)?.forEach(element => {
-            revealed.add(element);
-            element.classList.remove("reveal-pending");
-            element.classList.add("reveal-visible");
-          });
-          observer?.unobserve(entry.target);
-        });
-      }, { threshold: 0, rootMargin: `0px 0px -${triggerInset}px 0px` });
-
       elements.forEach(element => {
         if (!revealed.has(element)) element.classList.add("reveal-pending");
       });
-      targets.forEach((_, target) => observer?.observe(target));
+
+      // rootMargin does not accept vh. Projects enter at 35vh; other content at 15vh.
+      observers = [0.15, 0.35].map(ratio => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            targets.get(entry.target)?.forEach(element => {
+              revealed.add(element);
+              element.classList.remove("reveal-pending");
+              element.classList.add("reveal-visible");
+            });
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0, rootMargin: `0px 0px -${window.innerHeight * ratio}px 0px` });
+        targets.forEach((_, target) => {
+          const inset = target.closest(".project-card") ? 0.35 : 0.15;
+          if (inset === ratio) observer.observe(target);
+        });
+        return observer;
+      });
     };
 
     setup();

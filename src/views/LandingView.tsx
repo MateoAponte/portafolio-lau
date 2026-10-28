@@ -3,6 +3,7 @@ import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useStarSpin } from "../hooks/useStarSpin";
 import { StarParticles } from "../components/StarParticles";
 import { ContactItems } from "../components/ContactItems";
+import { ScrollHint } from "../components/ScrollHint";
 import { CompactNavigation } from "../components/CompactNavigation";
 import { ContactClosing } from "../components/ContactClosing";
 import { ProjectList } from "../components/ProjectList";
@@ -47,6 +48,7 @@ export function LandingView() {
         <div className="hero-year" data-reveal="up"><span>2025</span><img src="/images/avatar.png" alt="" width="32" height="32" /></div>
         <h1 id="portfolio-title" data-reveal="up">PORTFOLIO</h1>
         <p className="hero-role" data-reveal="up">UX/UI DESIGNER</p>
+        <ScrollHint />
       </section>
 
       <CompactNavigation />

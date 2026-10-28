@@ -3,7 +3,7 @@ import { ProjectMedia } from "./ProjectMedia";
 
 export function ProjectList() {
   return <div className="project-list">{projects.map((project, index) => (
-    <article className="project-card" key={project.slug}>
+    <article className={`project-card theme-${project.theme}`} key={project.slug}>
       <div className="project-card-link">
         <div className="project-cover-trigger" data-reveal-trigger>
         <div className="project-cover-reveal" data-reveal={index % 2 ? "wipe-left" : "wipe-right"}>
