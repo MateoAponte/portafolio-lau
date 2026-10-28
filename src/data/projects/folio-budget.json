@@ -1,0 +1,110 @@
+{
+  "slug": "folio-budget",
+  "name": "Folio",
+  "category": "Personal finance · Product design",
+  "title": "Make room for the things that matter.",
+  "summary": "A budgeting concept that turns everyday spending into a simple weekly plan, without overwhelming charts.",
+  "audience": "Young adults building their first sustainable budgeting routine.",
+  "problem": "Monthly dashboards can show where money went without helping someone decide what they can safely spend today.",
+  "question": "How might we translate a monthly budget into a manageable weekly decision?",
+  "value": "A weekly plan, with room to breathe.",
+  "description": "Flexible spending groups and a clear weekly allowance help people understand trade-offs before making a purchase.",
+  "pages": [
+    "Weekly overview",
+    "Spending groups",
+    "Activity",
+    "Plan next week"
+  ],
+  "items": [
+    "Everyday essentials",
+    "Small pleasures",
+    "Future plans"
+  ],
+  "action": "Review this week",
+  "theme": "lavender",
+  "insight": "A useful budget should explain the next decision, rather than only summarize past transactions.",
+  "demo": true,
+  "year": "2025",
+  "role": "UX/UI Designer · Demo concept",
+  "duration": "6-week concept exercise",
+  "tags": [
+    "UX research plan",
+    "Information architecture",
+    "UI design"
+  ],
+  "process": [
+    {
+      "title": "Discovery",
+      "description": "Define assumptions and a research plan for young adults building their first sustainable budgeting routine."
+    },
+    {
+      "title": "Define",
+      "description": "A useful budget should explain the next decision, rather than only summarize past transactions."
+    },
+    {
+      "title": "Design",
+      "description": "Map the main journey, compare wireframe alternatives, and develop a coherent visual language."
+    },
+    {
+      "title": "Review",
+      "description": "Prepare a usability study to evaluate comprehension, recovery, and task completion. No study results are claimed."
+    }
+  ],
+  "architecture": {
+    "description": "Four connected destinations organize the primary journey. Each step retains context so people can review their choices before continuing.",
+    "nodes": [
+      "Weekly overview",
+      "Spending groups",
+      "Activity",
+      "Plan next week"
+    ]
+  },
+  "wireframes": {
+    "description": "Wireframes explore the hierarchy between available funds, spending groups, and recent activity. Amounts remain contextual and are never presented as a financial recommendation.",
+    "captions": [
+      "Explore options",
+      "Compare details",
+      "Review your choice"
+    ]
+  },
+  "screens": {
+    "description": "Illustrative interface compositions for this fictional concept; not screenshots of a released product.",
+    "captions": [
+      "Weekly overview",
+      "Spending groups",
+      "Activity"
+    ]
+  },
+  "designSystem": {
+    "description": "A compact foundation of clear type, consistent spacing, and reusable controls supports the main journey.",
+    "principles": [
+      "Readable labels and visible focus",
+      "Consistent spacing and content hierarchy",
+      "Clear selection and recovery states"
+    ],
+    "typography": "Inter for interface text · Playfair Display for editorial headings",
+    "components": [
+      "Primary action",
+      "Category label",
+      "Content row",
+      "Navigation item"
+    ]
+  },
+  "closing": {
+    "title": "Designed to make the next step clearer.",
+    "description": "Next steps would test how irregular income and shared expenses affect the weekly planning model.",
+    "credits": "Fictional portfolio case study. All narratives, timelines, and interface examples are demo content; no client work or validated research outcomes are implied.",
+    "tools": [
+      "Figma",
+      "FigJam",
+      "Design documentation"
+    ]
+  },
+  "cover": {
+    "src": "/images/projects/folio-budget-overview.png",
+    "alt": "Folio fictional interface overview displayed on a mobile phone",
+    "width": 1200,
+    "height": 1000
+  },
+  "prototype": null
+}

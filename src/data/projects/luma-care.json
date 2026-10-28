@@ -1,0 +1,110 @@
+{
+  "slug": "luma-care",
+  "name": "Luma Care",
+  "category": "Healthcare · Mobile UX",
+  "title": "A clearer path to your next appointment.",
+  "summary": "A concept for booking medical appointments without losing track of availability, preparation, or follow-up.",
+  "audience": "People coordinating routine healthcare from their phones.",
+  "problem": "Booking care often means jumping between provider lists, calendars, and messages. Important preparation instructions get lost along the way.",
+  "question": "How might we make booking and preparing for a medical appointment feel like one continuous task?",
+  "value": "Find care. Know what comes next.",
+  "description": "A guided booking journey brings provider availability, appointment details, and preparation into one place.",
+  "pages": [
+    "Find care",
+    "Choose a specialist",
+    "Select a time",
+    "Appointment details"
+  ],
+  "items": [
+    "General medicine",
+    "Dermatology",
+    "Mental health"
+  ],
+  "action": "Explore availability",
+  "theme": "rose",
+  "insight": "Availability should be visible before asking people to commit to a provider.",
+  "demo": true,
+  "year": "2025",
+  "role": "UX/UI Designer · Demo concept",
+  "duration": "6-week concept exercise",
+  "tags": [
+    "UX research plan",
+    "Information architecture",
+    "UI design"
+  ],
+  "process": [
+    {
+      "title": "Discovery",
+      "description": "Define assumptions and a research plan for people coordinating routine healthcare from their phones."
+    },
+    {
+      "title": "Define",
+      "description": "Availability should be visible before asking people to commit to a provider."
+    },
+    {
+      "title": "Design",
+      "description": "Map the main journey, compare wireframe alternatives, and develop a coherent visual language."
+    },
+    {
+      "title": "Review",
+      "description": "Prepare a usability study to evaluate comprehension, recovery, and task completion. No study results are claimed."
+    }
+  ],
+  "architecture": {
+    "description": "Four connected destinations organize the primary journey. Each step retains context so people can review their choices before continuing.",
+    "nodes": [
+      "Find care",
+      "Choose a specialist",
+      "Select a time",
+      "Appointment details"
+    ]
+  },
+  "wireframes": {
+    "description": "Early layouts compare a provider-first path with an availability-first path. The chosen concept keeps the next appointment visible throughout the journey.",
+    "captions": [
+      "Explore options",
+      "Compare details",
+      "Review your choice"
+    ]
+  },
+  "screens": {
+    "description": "Illustrative interface compositions for this fictional concept; not screenshots of a released product.",
+    "captions": [
+      "Find care",
+      "Choose a specialist",
+      "Select a time"
+    ]
+  },
+  "designSystem": {
+    "description": "A compact foundation of clear type, consistent spacing, and reusable controls supports the main journey.",
+    "principles": [
+      "Readable labels and visible focus",
+      "Consistent spacing and content hierarchy",
+      "Clear selection and recovery states"
+    ],
+    "typography": "Inter for interface text · Playfair Display for editorial headings",
+    "components": [
+      "Primary action",
+      "Category label",
+      "Content row",
+      "Navigation item"
+    ]
+  },
+  "closing": {
+    "title": "Designed to make the next step clearer.",
+    "description": "The concept needs validation with people who book on behalf of family members, especially around permissions and preparation instructions.",
+    "credits": "Fictional portfolio case study. All narratives, timelines, and interface examples are demo content; no client work or validated research outcomes are implied.",
+    "tools": [
+      "Figma",
+      "FigJam",
+      "Design documentation"
+    ]
+  },
+  "cover": {
+    "src": "/images/projects/luma-care-overview.png",
+    "alt": "Luma Care fictional interface overview displayed on a mobile phone",
+    "width": 1200,
+    "height": 1000
+  },
+  "prototype": null
+}

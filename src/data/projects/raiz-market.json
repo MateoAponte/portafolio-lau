@@ -1,0 +1,110 @@
+{
+  "slug": "raiz-market",
+  "name": "Raíz Market",
+  "category": "Local commerce · Web experience",
+  "title": "Good food. Closer to home.",
+  "summary": "A local shopping concept connecting neighborhood producers with people looking for seasonal food and predictable pickup.",
+  "audience": "People shopping locally who need clear pickup times and product availability.",
+  "problem": "Small producers often share stock through scattered posts and messages, making availability and pickup arrangements difficult to compare.",
+  "question": "How might we help neighbors discover seasonal products and plan one reliable pickup?",
+  "value": "Discover the season in your neighborhood.",
+  "description": "A shared marketplace organizes seasonal produce, producer stories, and collection windows into a single shopping flow.",
+  "pages": [
+    "Seasonal market",
+    "Meet the producer",
+    "Your basket",
+    "Pickup details"
+  ],
+  "items": [
+    "Seasonal vegetables",
+    "Freshly baked",
+    "Pantry favorites"
+  ],
+  "action": "Browse the market",
+  "theme": "sand",
+  "insight": "Pickup details belong beside product availability, rather than appearing only at checkout.",
+  "demo": true,
+  "year": "2025",
+  "role": "UX/UI Designer · Demo concept",
+  "duration": "6-week concept exercise",
+  "tags": [
+    "UX research plan",
+    "Information architecture",
+    "UI design"
+  ],
+  "process": [
+    {
+      "title": "Discovery",
+      "description": "Define assumptions and a research plan for people shopping locally who need clear pickup times and product availability."
+    },
+    {
+      "title": "Define",
+      "description": "Pickup details belong beside product availability, rather than appearing only at checkout."
+    },
+    {
+      "title": "Design",
+      "description": "Map the main journey, compare wireframe alternatives, and develop a coherent visual language."
+    },
+    {
+      "title": "Review",
+      "description": "Prepare a usability study to evaluate comprehension, recovery, and task completion. No study results are claimed."
+    }
+  ],
+  "architecture": {
+    "description": "Four connected destinations organize the primary journey. Each step retains context so people can review their choices before continuing.",
+    "nodes": [
+      "Seasonal market",
+      "Meet the producer",
+      "Your basket",
+      "Pickup details"
+    ]
+  },
+  "wireframes": {
+    "description": "Early layouts test product-led discovery against producer-led discovery. Pickup availability stays visible in both alternatives.",
+    "captions": [
+      "Explore options",
+      "Compare details",
+      "Review your choice"
+    ]
+  },
+  "screens": {
+    "description": "Illustrative interface compositions for this fictional concept; not screenshots of a released product.",
+    "captions": [
+      "Seasonal market",
+      "Meet the producer",
+      "Your basket"
+    ]
+  },
+  "designSystem": {
+    "description": "A compact foundation of clear type, consistent spacing, and reusable controls supports the main journey.",
+    "principles": [
+      "Readable labels and visible focus",
+      "Consistent spacing and content hierarchy",
+      "Clear selection and recovery states"
+    ],
+    "typography": "Inter for interface text · Playfair Display for editorial headings",
+    "components": [
+      "Primary action",
+      "Category label",
+      "Content row",
+      "Navigation item"
+    ]
+  },
+  "closing": {
+    "title": "Designed to make the next step clearer.",
+    "description": "The next study would explore how substitutions, stock changes, and accessibility at collection points should be communicated.",
+    "credits": "Fictional portfolio case study. All narratives, timelines, and interface examples are demo content; no client work or validated research outcomes are implied.",
+    "tools": [
+      "Figma",
+      "FigJam",
+      "Design documentation"
+    ]
+  },
+  "cover": {
+    "src": "/images/projects/raiz-market-overview.png",
+    "alt": "Raíz Market fictional interface overview displayed on a laptop",
+    "width": 1200,
+    "height": 1000
+  },
+  "prototype": null
+}
