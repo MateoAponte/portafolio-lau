@@ -19,6 +19,47 @@
 
 :root { --layout-max-width: 58rem; --layout-gutter: 1.5rem; font-family: var(--font-body); color: var(--color-text-primary); background: var(--color-background); font-synthesis: none; -webkit-font-smoothing: antialiased; }
 body { margin: 0; min-width: 320px; overflow-x: clip; }
+.back-to-top {
+  position: fixed;
+  right: max(var(--layout-gutter), env(safe-area-inset-right));
+  bottom: max(var(--layout-gutter), env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-action-primary);
+  color: var(--color-on-action-primary);
+  box-shadow: 0 4px 16px rgb(24 33 53 / 12%);
+  cursor: pointer;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(.9);
+  transition: opacity var(--duration-quick) var(--ease-smooth-out),
+    transform var(--duration-quick) var(--ease-smooth-out),
+    background-color var(--duration-quick) var(--ease-out),
+    color var(--duration-quick) var(--ease-out),
+    visibility 0s var(--duration-quick);
+}
+.back-to-top.is-visible {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transform: scale(1);
+  transition-duration: var(--duration-fast), var(--duration-fast), var(--duration-quick), var(--duration-quick), 0s;
+  transition-delay: 0s;
+}
+@media (hover: hover) {
+  .back-to-top:hover { background: var(--color-accent); color: var(--color-background); }
+}
+.back-to-top:active { transform: scale(.96); }
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top, .back-to-top.is-visible { transition: none; transform: none; }
+}
 [data-view="landing"] { position: relative; isolation: isolate; overflow-x: clip; }
 .star-particles { position: absolute; inset: 0; z-index: -1; overflow: clip; pointer-events: none; }
 .background-star { position: absolute; color: #cba9bc; opacity: .5; }
@@ -26,7 +67,7 @@ body { margin: 0; min-width: 320px; overflow-x: clip; }
 .background-star:nth-child(3n + 1) { color: #dfbd8b; }
 .hero-star { pointer-events: none; }
 @media (max-width: 600px) {
-  .background-star:nth-child(even) { display: none; }
+  .background-star:nth-child(4n + 2), .background-star:nth-child(4n + 3) { display: none; }
   .background-star { opacity: .3; }
 }
 * { box-sizing: border-box; }
