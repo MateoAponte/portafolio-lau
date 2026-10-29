@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SectionWave } from "../components/SectionWave";
 import career from "../data/career.json";
 import { CareerTimeline } from "../components/CareerTimeline";
 import { useScrollReveal } from "../hooks/useScrollReveal";
@@ -62,6 +63,7 @@ export function LandingView() {
       <CompactNavigation />
       <div className="portfolio-content">
         <section id="about" className="about" aria-labelledby="about-title">
+          <SectionWave /><SectionWave bottom />
           <div className="section-band-inner">
           <div className="about-layout" data-reveal="up">
             <img className="portrait" src="/images/laura.png" alt="Laura Benavides" width="112" height="112" />
@@ -82,6 +84,7 @@ export function LandingView() {
         </section>
   
         <section id="tech-stack" className="tools" aria-labelledby="tools-title">
+          <SectionWave /><SectionWave bottom />
           <div className="tools-inner">
           <SectionTitle id="tools-title" align="right" reveal="left">Tools</SectionTitle>
           <div className="tool-group" data-reveal="left">
@@ -110,6 +113,7 @@ export function LandingView() {
   
 
           <section id="contact" className="contact" aria-labelledby="contact-title">
+            <SectionWave />
             <div className="section-band-inner">
             <SectionTitle id="contact-title" reveal="right">Contact info</SectionTitle>
             <ContactItems />

@@ -490,9 +490,9 @@ html { scroll-padding-top: 6rem; scroll-behavior: smooth; }
 .about, .tools, .contact { position: relative; background: var(--section-field); padding-block: clamp(3rem, 5vw, 4.5rem); }
 .about, .tools { --section-field: var(--color-surface-wave); }
 .about { margin-top: 2rem; }
-.about::before, .about::after, .tools::before, .tools::after, .contact::before { content: ""; position: absolute; left: 0; width: 100%; height: clamp(1.5rem, 3vw, 3rem); background: var(--section-field); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 25C260-10 410-5 720 30S1170 60 1440 15V60H0Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat; pointer-events: none; }
-.about::before, .tools::before, .contact::before { bottom: calc(100% - 1px); }
-.about::after, .tools::after { top: calc(100% - 1px); rotate: 180deg; }
+.section-wave { position: absolute; left: 0; display: block; width: 100%; height: clamp(1.5rem, 3vw, 3rem); color: var(--section-field); overflow: hidden; pointer-events: none; }
+.section-wave--top { bottom: calc(100% - 1px); }
+.section-wave--bottom { top: calc(100% - 1px); rotate: 180deg; }
 .tools .section-heading h2 { background: var(--color-surface-brand); color: var(--color-accent); }
 .contact { --section-field: var(--color-surface-closing); color: var(--color-text-on-closing); margin-top: 7rem; padding-bottom: 1rem; }
 .contact .section-heading h2 { background: #ffffff1a; color: var(--color-text-on-closing); }
