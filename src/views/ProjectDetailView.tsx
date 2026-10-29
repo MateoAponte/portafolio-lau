@@ -1,6 +1,5 @@
 import { CompactNavigation } from "../components/CompactNavigation";
 import { ProcessStory } from "../components/ProcessStory";
-import { ContactClosing } from "../components/ContactClosing";
 import type { Project } from "../data/projects";
 import { projects } from "../data/projects";
 import { ProjectPreview } from "../components/ProjectPreview";
@@ -26,7 +25,6 @@ export function ProjectDetailView({ project }: { project: Project }) {
         <section data-section="design-system" aria-labelledby="system-title"><h2 id="system-title">Design system</h2><p>{project.designSystem.description}</p><div className="case-system"><div><h3>Typography</h3><p>{project.designSystem.typography}</p><p className="case-type-sample">Clear by design.</p></div><div><h3>Principles</h3><ul>{project.designSystem.principles.map(item => <li key={item}>{item}</li>)}</ul></div><div><h3>Component foundations</h3><ul className="case-tags">{project.designSystem.components.map(item => <li key={item}>{item}</li>)}</ul></div></div></section>
         <footer className="case-closing" data-section="project-closing"><h2>{project.closing.title}</h2><p>{project.closing.description}</p><h3>Tools</h3><ul className="case-tags">{project.closing.tools.map(tool => <li key={tool}>{tool}</li>)}</ul><p className="case-credit">{project.closing.credits}</p><div className="case-end-links"><a href="#projects">← All projects</a><a href={`#/projects/${next.slug}`}>Next: {next.name} →</a></div></footer>
       </article>
-      <ContactClosing />
     </main>
   );
 }

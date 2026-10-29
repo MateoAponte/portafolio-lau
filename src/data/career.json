@@ -1,0 +1,38 @@
+{
+  "background": [
+    {
+      "title": "Technical Support",
+      "organization": "GoDaddy",
+      "start": "2024",
+      "end": "2026",
+      "brief": "Helping customers navigate hosting, domains, and website issues through clear guidance and practical troubleshooting."
+    },
+    {
+      "title": "UI Designer",
+      "organization": "Internship company",
+      "start": "2025",
+      "brief": "Exploring interface concepts through wireframes, visual design, and interactive prototypes alongside a design team."
+    },
+    {
+      "title": "UI/UX Designer & Web Migration Specialist",
+      "organization": "Primeworks",
+      "start": "2025",
+      "end": "2026",
+      "brief": "Designing digital experiences and supporting website migrations, with attention to content structure, usability, and visual consistency."
+    }
+  ],
+  "education": [
+    {
+      "title": "UX/UI Design Bootcamp",
+      "organization": "BIT, Universidad Iberoamericana",
+      "start": "2025",
+      "brief": "Hands-on exploration of user research, information architecture, and interface design, from early discovery to interactive prototypes."
+    },
+    {
+      "title": "Web Development Course (HTML, CSS, JS)",
+      "organization": "Tecnológico de Monterrey",
+      "start": "2025",
+      "brief": "Building a foundation in HTML, CSS, and JavaScript to translate interface ideas into responsive web experiences."
+    }
+  ]
+}

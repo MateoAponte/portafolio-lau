@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export function CompactNavigation({ detailSlug }: { detailSlug?: string }) {
   const links = detailSlug
     ? [["process-title", "Process"], ["problem-title", "Problem"], ["architecture-title", "Structure"], ["wireframes-title", "Wireframes"], ["screens-title", "Interface"], ["system-title", "System"]]
-    : [["about", "About"], ["contact", "Contact"], ["tech-stack", "Tools"], ["cv", "Education"], ["projects", "Projects"]];
+    : [["about", "About"], ["projects", "Projects"], ["tech-stack", "Tools"], ["cv", "Education"], ["contact", "Contact"]];
   const linkList = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(Boolean(detailSlug));
   const [active, setActive] = useState("");
@@ -13,7 +13,7 @@ export function CompactNavigation({ detailSlug }: { detailSlug?: string }) {
       frame = 0;
       const hero = document.getElementById("introduction");
       setVisible(Boolean(detailSlug) || Boolean(hero && hero.getBoundingClientRect().bottom <= 0));
-      const ids = detailSlug ? ["process-title", "problem-title", "architecture-title", "wireframes-title", "screens-title", "system-title"] : ["about", "contact", "tech-stack", "cv", "projects"];
+      const ids = detailSlug ? ["process-title", "problem-title", "architecture-title", "wireframes-title", "screens-title", "system-title"] : ["about", "projects", "tech-stack", "cv", "contact"];
       let current = "";
       for (const id of ids) if ((document.getElementById(id)?.getBoundingClientRect().top ?? Infinity) <= 160) current = id;
       setActive(current);

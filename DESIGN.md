@@ -79,3 +79,32 @@ Se reserva el ancho de la etiqueta en negrita para evitar saltos entre estados.
 Hover con color/subrayado, foco visible y estrella con fade de 150ms y escala
 suave de 250ms. En movimiento reducido, los cambios son inmediatos. La lista
 horizontal mantiene visible el enlace activo en pantallas estrechas.
+
+## Tools compacto
+
+Rediseño local: dos grupos con título lateral en escritorio y herramientas en
+líneas flexibles, cada una con logotipo de 24px y nombre visible. En móvil los
+títulos se apilan y los elementos saltan de línea; no hay carrusel ni tarjetas
+de gran altura. Se conservan los ocho nombres y las entradas independientes de
+Design e IA. Hover de color, sin sugerir una acción de clic inexistente.
+Verificado en producción: alturas de sección ~191px a 1440, ~243px a 768 y
+~325px a 390; sin desbordamiento horizontal.
+
+## Cabecera y tags de herramientas
+
+Orden de portada: tag UX/UI Designer, PORTFOLIO, avatar dibujado + Laura Benavides
+en acento + estrella. El nombre usa tracking moderado para facilitar la lectura.
+Tools tiene una franja rosa de ancho completo y un contenedor interior con los
+mismos márgenes del portfolio. Herramientas en tags blancos con logotipo y nombre;
+categorías Design y AI. Los grupos conservan su entrada independiente.
+Verificado en producción a 1440, 768 y 390px: ocho tags, sin overflow horizontal.
+
+## Campos de About y Contact
+
+About usa lavanda suave (`--color-surface-about: #ece8f2`) y Contact azul grisáceo
+(`--color-surface-contact: #e5e7ec`), ambos de ancho completo con el contenedor
+interior compartido. Se elimina el separador tras About porque el cambio de
+superficie ya comunica el límite. Tools conserva tags blancos y añade hover
+con elevación de 2px, sombra suave y acento en texto, a 150ms; sin desplazamiento
+con movimiento reducido. Verificado a 1440, 768 y 390px: márgenes alineados,
+sin overflow. Hover inspeccionado al 10% de velocidad.
