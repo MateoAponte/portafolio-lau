@@ -17,7 +17,7 @@ export function SectionWave({ bottom = false }: { bottom?: boolean }) {
       // Advance one full wavelength instead of reversing between two shapes.
       gsap.to(wave.current!.querySelector("path"), {
         x: -1440,
-        duration: 10.5,
+        duration: 12.5,
         ease: "none",
         repeat: -1,
       });
