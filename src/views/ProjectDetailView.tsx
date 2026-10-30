@@ -3,6 +3,7 @@ import { ProcessStory } from "../components/ProcessStory";
 import type { Project } from "../data/projects";
 import { projects } from "../data/projects";
 import { ProjectPreview } from "../components/ProjectPreview";
+import { ProjectArrow } from "../components/ProjectArrow";
 
 export function ProjectDetailView({ project }: { project: Project }) {
   const next = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
@@ -23,7 +24,7 @@ export function ProjectDetailView({ project }: { project: Project }) {
         <section className="case-split case-wireframes" data-section="wireframes" aria-labelledby="wireframes-title"><div className="case-wire-grid">{project.wireframes.captions.map((caption, i) => <figure key={caption}><ProjectPreview project={project} wireframe page={i} /><figcaption>{caption}</figcaption></figure>)}</div><div><h2 id="wireframes-title">Wireframes</h2><p>{project.wireframes.description}</p></div></section>
         <section data-section="final-screens" aria-labelledby="screens-title"><h2 id="screens-title">The interface</h2><p>{project.screens.description}</p><div className="case-screen-grid">{project.screens.captions.map((caption, i) => <figure key={caption}><ProjectPreview project={project} page={i} /><figcaption>{caption}</figcaption></figure>)}</div></section>
         <section data-section="design-system" aria-labelledby="system-title"><h2 id="system-title">Design system</h2><p>{project.designSystem.description}</p><div className="case-system"><div><h3>Typography</h3><p>{project.designSystem.typography}</p><p className="case-type-sample">Clear by design.</p></div><div><h3>Principles</h3><ul>{project.designSystem.principles.map(item => <li key={item}>{item}</li>)}</ul></div><div><h3>Component foundations</h3><ul className="case-tags">{project.designSystem.components.map(item => <li key={item}>{item}</li>)}</ul></div></div></section>
-        <footer className="case-closing" data-section="project-closing"><h2>{project.closing.title}</h2><p>{project.closing.description}</p><h3>Tools</h3><ul className="case-tags">{project.closing.tools.map(tool => <li key={tool}>{tool}</li>)}</ul><p className="case-credit">{project.closing.credits}</p><div className="case-end-links"><a href="#projects">← All projects</a><a href={`#/projects/${next.slug}`}>Next: {next.name} →</a></div></footer>
+        <footer className="case-closing" data-section="project-closing"><h2>{project.closing.title}</h2><p>{project.closing.description}</p><h3>Tools</h3><ul className="case-tags">{project.closing.tools.map(tool => <li key={tool}>{tool}</li>)}</ul><p className="case-credit">{project.closing.credits}</p><div className="case-end-links"><a href="#projects">← All projects</a><a href={`#/projects/${next.slug}`}>Next: {next.name}{" "}<ProjectArrow /></a></div></footer>
       </article>
     </main>
   );

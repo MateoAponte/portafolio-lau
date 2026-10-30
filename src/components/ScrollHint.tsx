@@ -10,13 +10,15 @@ export function ScrollHint() {
   useGSAP(() => {
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
-      const bounce = gsap.fromTo(hint.current, { y: -3 }, {
-        y: 3, duration: 1, ease: "bounce.out", repeat: -1, yoyo: true,
-        repeatDelay: .6,
-      });
+      const scroll = gsap.timeline({ repeat: -1, repeatDelay: .5 });
+      scroll.fromTo(".scroll-hint-wheel", { y: 0, opacity: 1 }, {
+        y: 6, duration: 1.2, ease: "sine.inOut",
+      }).to(".scroll-hint-wheel", { opacity: 0, duration: .3 }, "-=.3")
+        .set(".scroll-hint-wheel", { y: 0 })
+        .to(".scroll-hint-wheel", { opacity: 1, duration: .4, ease: "sine.inOut" });
       if (!("IntersectionObserver" in window) || !hint.current) return;
       const observer = new IntersectionObserver(([entry]) => {
-        bounce.paused(!entry.isIntersecting);
+        scroll.paused(!entry.isIntersecting);
       });
       observer.observe(hint.current);
       return () => observer.disconnect();
@@ -28,7 +30,7 @@ export function ScrollHint() {
     <a className="scroll-hint" href="#about" ref={hint}>
       <svg viewBox="0 0 24 28" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
         <rect x="4" y="2" width="16" height="24" rx="8" />
-        <path d="M12 7v5" />
+        <path className="scroll-hint-wheel" d="M12 7v5" />
       </svg>
       <span>Scroll to explore</span>
     </a>

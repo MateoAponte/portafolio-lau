@@ -1,11 +1,10 @@
 import type { ReactNode } from "react";
 
-// Demo values only. Replace these four records when real contact details arrive.
 export const contacts = [
-  { id: "gmail", label: "Gmail", value: "laura.benavides@example.com", href: "mailto:laura.benavides@example.com", external: false },
-  { id: "linkedin", label: "LinkedIn", value: "Professional profile", href: "https://example.com/linkedin", external: true },
-  { id: "behance", label: "Behance", value: "Creative portfolio", href: "https://example.com/behance", external: true },
-  { id: "phone", label: "Mobile", value: "+1 (202) 555-0147", href: "tel:+12025550147", external: false },
+  { id: "gmail", label: "Gmail", value: "laubenavides6@gmail.com", href: "mailto:laubenavides6@gmail.com", external: false },
+  { id: "linkedin", label: "LinkedIn", value: "Professional profile", href: "https://www.linkedin.com/in/lauraben-uxui/", external: true },
+  { id: "behance", label: "Behance", value: "Creative portfolio", href: "https://www.behance.net/laurabenavides2", external: true },
+  { id: "phone", label: "Mobile", value: "3195531725", href: "tel:3195531725", external: false },
 ] as const;
 
 function ContactIcon({ type }: { type: typeof contacts[number]["id"] }) {
@@ -21,7 +20,6 @@ function ContactIcon({ type }: { type: typeof contacts[number]["id"] }) {
 export function ContactItems() {
   return (
     <>
-      <p className="contact-demo" data-reveal="right">Demo contact details</p>
       <ul className="contact-list">
         {contacts.map(contact => (
           <li key={contact.id} className={`contact-item contact-item--${contact.id}`} data-reveal="right">
@@ -30,7 +28,7 @@ export function ContactItems() {
               href={contact.href}
               target={contact.external ? "_blank" : undefined}
               rel={contact.external ? "noopener noreferrer" : undefined}
-              aria-label={`${contact.label}: ${contact.value} (demo${contact.external ? ", opens in a new tab" : ""})`}
+              aria-label={`${contact.label}: ${contact.value}${contact.external ? " (opens in a new tab)" : ""}`}
             >
               <span className="contact-icon"><ContactIcon type={contact.id} /></span>
               <span className="contact-copy"><span className="contact-label">{contact.label}</span><span className="contact-value">{contact.value}</span></span>

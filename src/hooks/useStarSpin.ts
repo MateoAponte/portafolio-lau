@@ -8,6 +8,10 @@ export function useStarSpin(scope: RefObject<HTMLElement | null>) {
   useGSAP(() => {
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.to(".hero-name-star", {
+        rotation: 360, duration: 32, ease: "none", repeat: -1,
+        transformOrigin: "50% 50%",
+      });
       const groups = [
         ".hero-star, .background-star",
         ".section-heading > .sparkle",

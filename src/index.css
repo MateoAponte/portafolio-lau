@@ -106,7 +106,12 @@ p { text-wrap: pretty; }
 }
 .hero { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 360px; overflow: hidden; background: var(--color-background); color: #29354f; padding: 60px 24px 72px; }
 .hero-year { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; letter-spacing: .34em; }
-.hero-year img { border-radius: 50%; object-fit: cover; }
+.hero-linkedin { position: relative; display: inline-flex; flex: none; width: 32px; height: 32px; color: var(--color-accent); border-radius: 7px; transition: opacity var(--duration-quick) ease-out; }
+.hero-linkedin::before { content: ""; position: absolute; inset: -6px; }
+.hero-linkedin svg { width: 100%; height: 100%; }
+.hero-linkedin:hover { opacity: .75; }
+.hero-linkedin:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .hero-linkedin { transition: none; } }
 .hero-name { color: var(--color-accent); }
 .hero-name > span { letter-spacing: normal; }
 .hero h1 { font-family: var(--font-display); font-size: clamp(60px, 9.2vw, 120px); font-weight: 800; line-height: 1.12; letter-spacing: -.035em; margin: 7px 0 23px; }
@@ -129,8 +134,8 @@ p { text-wrap: pretty; }
 .dots i { width: 6px; height: 6px; background: #bfcbd4; border-radius: 50%; }
 .dots i:nth-child(3n) { background: #cdaec1; }
 .dots i:nth-child(4n) { background: #d1c1dc; }
-.about-layout { display: grid; grid-template-columns: 112px 1fr; gap: 24px; align-items: start; }
-.portrait { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; box-shadow: 0 5px 12px #29354f0c; }
+.about-layout { display: grid; grid-template-columns: 176px minmax(0, 1fr); gap: 24px; align-items: start; }
+.portrait { width: 176px; height: 176px; border-radius: 50%; object-fit: cover; box-shadow: 0 5px 12px #29354f0c; }
 .about-copy { max-width: 68ch; font-size: 1.0625rem; line-height: 1.75; }
 .about-copy h2 { font-size: inherit; font-weight: 400; margin: 2px 0 14px; }
 .about-copy strong { color: var(--color-accent); font-weight: 700; }
@@ -170,7 +175,7 @@ p { text-wrap: pretty; }
 }
 .section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
 .section-heading > .sparkle { color: #d39740; }
-.section-heading h2 { color: var(--color-accent); font-size: .875rem; font-weight: 700; line-height: 1.2; text-transform: uppercase; letter-spacing: .025em; padding: 6px 14px; border: 1px solid #e5c9d5; background: #eee2e7; border-radius: 999px; white-space: nowrap; }
+.section-heading h2 { color: var(--color-accent); font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 700; line-height: 1.2; text-transform: uppercase; letter-spacing: .025em; padding: 6px 14px; border: 1px solid #e5c9d5; background: #eee2e7; border-radius: 999px; white-space: nowrap; }
 .section-heading .dots { gap: 6px; width: 60px; overflow: hidden; mask-image: linear-gradient(to right, black, transparent); }
 .section-heading .dots i { width: 4px; height: 4px; flex: none; }
 .section-heading--right { flex-direction: row-reverse; }
@@ -185,7 +190,6 @@ p { text-wrap: pretty; }
 .tools .ai-title { display: flex; align-items: center; gap: .5rem; }
 .ai-title svg { width: 13px; height: 13px; color: var(--color-accent); }
 .education { margin-top: 100px; }
-.education .section-heading > .sparkle { color: #b57f9b; }
 .education-list { list-style: none; padding: 0; margin: 0; }
 .education-list li { display: grid; grid-template-columns: 20px minmax(0, 1fr) minmax(0, 1.1fr) 40px; gap: 10px; align-items: center; padding: 1.5rem .75rem; border-radius: 10px; border-bottom: 1px solid #eeeaec; font-size: 1rem; line-height: 1.6; }
 .education-list svg { width: 17px; height: 17px; fill: none; stroke: #b57f9b; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -211,11 +215,12 @@ p { text-wrap: pretty; }
   .hero-star--four { display: none; }
   .portfolio-content { padding-inline: var(--layout-gutter); }
   .about-layout { grid-template-columns: 1fr; gap: 22px; }
-  .portrait { width: 92px; height: 92px; }
+  .portrait { width: 136px; height: 136px; }
   .about-copy { font-size: 1rem; line-height: 1.75; }
   .contact { margin-top: 48px; padding-left: 0; }
   .tools { margin-top: 72px; }
   .section-heading { margin-bottom: 28px; }
+  .section-heading h2 { font-size: .875rem; }
   .tool-group { grid-template-columns: minmax(0, 1fr); gap: .5rem; }
   .tools h3 { margin-top: 0; }
   .tool-grid { gap: .25rem 1rem; }
@@ -241,7 +246,6 @@ p { text-wrap: pretty; }
 .theme-rose { --project-surface: #eee2e7; --project-accent: #8d3e64; }
 .theme-lavender { --project-surface: #e9e3f2; --project-accent: #655080; }
 .theme-sand { --project-surface: #f0e7d8; --project-accent: #735a35; }
-.project-demo-note { color: var(--color-text-secondary); font-size: .875rem; line-height: 1.65; margin-bottom: 2rem; }
 .project-list { display: grid; gap: 4rem; }
 .project-card { min-width: 0; }
 .project-card-link { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2rem; color: inherit; text-decoration: none; border-radius: 16px; }
@@ -455,12 +459,12 @@ html { scroll-padding-top: 6rem; scroll-behavior: smooth; }
 /* Compact toolkit, with the same content edges as the rest of the page. */
 .hero > .hero-role { margin-bottom: 1rem; }
 .hero-year { gap: .625rem; letter-spacing: .035em; font-size: 1rem; }
-.hero-name-star { font-size: 1rem; letter-spacing: normal; }
+.hero-name-star { width: 24px; height: 24px; flex: none; color: var(--color-accent); pointer-events: none; }
 .tools { width: 100vw; margin-inline: calc(50% - 50vw); padding-block: 0; }
 .tools-inner { width: 100%; max-width: var(--layout-max-width); margin-inline: auto; padding-inline: var(--layout-gutter); }
 .tools .section-heading { margin-bottom: 1.5rem; }
 .tools .section-heading h2 { background: #fff; border-color: transparent; }
-.tool-group { grid-template-columns: 5rem minmax(0, 1fr); align-items: center; }
+.tool-group { grid-template-columns: 7rem minmax(0, 1fr); align-items: center; }
 .tools h3 { margin: 0; color: var(--color-accent); font-size: 1rem; }
 .tool-grid { gap: .625rem; }
 .tool-card { min-height: 44px; padding: .625rem 1rem; gap: .5rem; background: #fff; border-radius: 999px; font-size: .875rem; font-weight: 500; }

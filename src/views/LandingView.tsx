@@ -24,22 +24,24 @@ function SectionTitle({ children, align = "left", id, reveal }: { children: Reac
 
 const designTools = [
   { name: "Figma", image: "figma" },
-  { name: "Illustrator", image: "illustrator" },
-  { name: "Adobe XD", image: "adobe-xd" },
+  { name: "Webflow", image: "webflow.svg" },
+  { name: "Relume", image: "relume" },
   { name: "Photoshop", image: "photoshop" },
+  { name: "Illustrator", image: "illustrator" },
 ];
 const aiTools = [
   { name: "Claude", image: "claude.svg" },
-  { name: "Codex", image: "codex.svg" },
-  { name: "Lovable", image: "lovable" },
   { name: "Figma Make", image: "figma-make" },
+  { name: "Lovable", image: "lovable" },
+  { name: "ChatGPT", image: "chatgpt.svg" },
+  { name: "Gemini", image: "gemini.svg" },
   { name: "Google Stitch", image: "google-stitch" },
 ];
 
-const organizationTools = [
-  { name: "Trello", image: "trello" },
-  { name: "Notion", image: "notion.svg" },
-  { name: "Monday", image: "monday.svg" },
+const codingTools = [
+  { name: "HTML", image: "html.svg" },
+  { name: "CSS", image: "css.svg" },
+  { name: "Codex", image: "codex.svg" },
 ];
 
 function ToolList({ tools, ai = false }: { tools: typeof designTools; ai?: boolean }) {
@@ -56,7 +58,17 @@ export function LandingView() {
         <Sparkle className="hero-star hero-star--one" /><Sparkle className="hero-star hero-star--two" /><Sparkle className="hero-star hero-star--three" /><Sparkle className="hero-star hero-star--four" /><Sparkle className="hero-star hero-star--five" />
         <p className="hero-role" data-reveal="up">UX/UI DESIGNER</p>
         <h1 id="portfolio-title" data-reveal="up">PORTFOLIO</h1>
-        <div className="hero-year" data-reveal="up"><img src="/images/avatar.png" alt="" width="32" height="32" /><span className="hero-name">Laura Benavides</span><span className="hero-name-star" aria-hidden="true">✨</span></div>
+        <div className="hero-year" data-reveal="up">
+          <a className="hero-linkedin" href="https://www.linkedin.com/in/lauraben-uxui/" target="_blank" rel="noopener noreferrer" aria-label="Laura Benavides on LinkedIn (opens in a new tab)">
+            <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="3" y="3" width="26" height="26" rx="7" stroke="currentColor" strokeWidth="1.5" /><circle cx="10" cy="10" r="1.6" fill="currentColor" /><path d="M10 14v9m6 0v-9m0 4a4 4 0 0 1 8 0v5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </a>
+          <span className="hero-name">Laura Benavides</span>
+          <svg className="hero-name-star" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="m20 2 3.5 11.5L33 7l-6.5 9.5L38 20l-11.5 3.5L33 33l-9.5-6.5L20 38l-3.5-11.5L7 33l6.5-9.5L2 20l11.5-3.5L7 7l9.5 6.5Z" fill="currentColor" fillOpacity=".18" />
+            <path d="M20 4c1.6 10.4 5.6 14.4 16 16-10.4 1.6-14.4 5.6-16 16C18.4 25.6 14.4 21.6 4 20 14.4 18.4 18.4 14.4 20 4Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+            <path d="m20 15 5 5-5 5-5-5Z" fill="currentColor" />
+          </svg>
+        </div>
         <ScrollHint />
       </section>
 
@@ -66,7 +78,7 @@ export function LandingView() {
           <SectionWave /><SectionWave bottom />
           <div className="section-band-inner">
           <div className="about-layout" data-reveal="up">
-            <img className="portrait" src="/images/laura.png" alt="Laura Benavides" width="112" height="112" />
+            <img className="portrait" src="/images/laura.png" alt="Laura Benavides" width="176" height="176" />
             <div className="about-copy">
               <h2 id="about-title" className="sr-only">About me</h2>
               <p>I'm a UX/UI designer, passionate about creating meaningful and intuitive digital experiences. Guided by design thinking and user research, I turn insights from interviews, empathy maps, and user journeys into wireframes, user flows, and interactive prototypes that feel effortless and human.</p>
@@ -79,7 +91,6 @@ export function LandingView() {
   
         <section id="projects" className="projects" aria-labelledby="projects-title">
           <SectionTitle id="projects-title" align="right">Case studies</SectionTitle>
-          <p className="project-demo-note">Three fictional concepts exploring everyday experiences.</p>
           <ProjectList />
         </section>
   
@@ -94,7 +105,7 @@ export function LandingView() {
           <h3 className="ai-title">AI <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 1 3.1 7 7.6.8-5.7 5 1.7 7.5-6.7-3.9-6.7 3.9L7 13.8 1.3 8.8l7.6-.8Z" fill="currentColor" /></svg></h3><ToolList tools={aiTools} ai />
           </div>
           <div className="tool-group" data-reveal="left">
-            <h3>Planning</h3><ToolList tools={organizationTools} />
+            <h3>Basic Coding</h3><ToolList tools={codingTools} />
           </div>
           </div>
         </section>
