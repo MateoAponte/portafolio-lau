@@ -10,7 +10,7 @@ export function ProjectDetailView({ project }: { project: Project }) {
   return (
     <main className={`case-study theme-${project.theme}`} data-view="project-detail">
       <CompactNavigation detailSlug={project.slug} />
-      <nav className="case-nav" aria-label="Case study navigation"><a href="#projects">← Back to projects</a><span>{project.name} · {project.year}</span></nav>
+      <nav className="case-nav" aria-label="Case study navigation"><a href="#introduction">← Back to home</a><span>{project.name} · {project.year}</span></nav>
       <p className="case-demo">Demo concept · Fictional project and illustrative content</p>
       <article>
         <header className="case-overview" data-section="project-overview">

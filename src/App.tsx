@@ -40,6 +40,6 @@ export function App() {
     }
   }, [hash, isDetail, project, section, route]);
 
-  if (isDetail && !project) return <main className="case-study" data-view="project-detail"><a href="#projects">← Back to projects</a><h1 tabIndex={-1}>Project not found</h1><p>This case study is not available. Explore the demo projects instead.</p></main>;
+  if (isDetail && !project) return <main className="case-study" data-view="project-detail"><a href="#introduction">← Back to home</a><h1 tabIndex={-1}>Project not found</h1><p>This case study is not available. Explore the demo projects instead.</p></main>;
   return <>{project ? <ProjectDetailView key={project.slug} project={project} /> : <LandingView />}<BackToTop /></>;
 }

@@ -7,19 +7,24 @@ export function ProcessStory({ project }: { project: Project }) {
   const [active, setActive] = useState(0);
   useEffect(() => {
     let frame = 0;
+    const list = scope.current?.querySelector<HTMLOListElement>(".process-steps");
     const update = () => {
       frame = 0;
       const steps = [...(scope.current?.querySelectorAll<HTMLElement>(".process-step") ?? [])];
       let nearest = 0, distance = Infinity;
-      steps.forEach((step, i) => { const rect = step.getBoundingClientRect(); const value = Math.abs(rect.top + rect.height / 2 - innerHeight / 2); if (value < distance) { distance = value; nearest = i; } });
+      const mobile = matchMedia("(max-width: 600px)").matches;
+      if (list) list.tabIndex = mobile ? 0 : -1;
+      const left = list?.getBoundingClientRect().left ?? 0;
+      steps.forEach((step, i) => { const rect = step.getBoundingClientRect(); const value = mobile ? Math.abs(rect.left - left) : Math.abs(rect.top + rect.height / 2 - innerHeight / 2); if (value < distance) { distance = value; nearest = i; } });
       setActive(nearest);
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    list?.addEventListener("scroll", schedule, { passive: true });
     update();window.addEventListener("scroll", schedule, { passive: true });window.addEventListener("resize", schedule);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", schedule); window.removeEventListener("resize", schedule); };
+    return () => { cancelAnimationFrame(frame); list?.removeEventListener("scroll", schedule); window.removeEventListener("scroll", schedule); window.removeEventListener("resize", schedule); };
   }, [project.slug]);
   return <div className="process-story" ref={scope}>
-    <ol className="process-steps">{project.process.map((step, i) => <li className={`process-step ${i === active ? "is-active" : ""}`} key={step.title} id={`process-step-${i}`} tabIndex={-1}>
+    <ol className="process-steps" aria-label="Process steps">{project.process.map((step, i) => <li className={`process-step ${i === active ? "is-active" : ""}`} key={step.title} id={`process-step-${i}`} tabIndex={-1}>
       <div><span className="process-step-count">Step {i + 1} / {project.process.length}</span><h3>{step.title}</h3><p>{step.description}</p></div>
       <div className="process-mobile-preview"><ProjectPreview project={project} page={i} wireframe={i===1} /></div>
     </li>)}</ol>

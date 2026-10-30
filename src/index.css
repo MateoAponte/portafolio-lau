@@ -422,6 +422,15 @@ html { scroll-padding-top: 6rem; scroll-behavior: smooth; }
 }
 
 .process-step.is-active h3 { color: var(--project-accent); }
+@media (max-width: 600px) {
+  .process-story { min-width: 0; }
+  .process-steps { display: flex; gap: 1rem; min-width: 0; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--project-accent) var(--project-surface); padding-bottom: .75rem; }
+  .process-step { flex: 0 0 88%; min-width: 0; align-content: start; scroll-snap-align: start; }
+  .case-value > :last-child, .case-wireframes > :last-child { order: -1; }
+}
+@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
+  .process-steps { scroll-behavior: auto; }
+}
 
 .project-cover-trigger { min-width: 0; }
 
