@@ -13,7 +13,7 @@ export const projectDesignSystems: Record<string, {
   iconographyImage?: { src: string; alt: string; width: number; height: number };
   iconographySvgs?: string[];
   buttonsImage?: { src: string; alt: string; width: number; height: number };
-  componentGallery?: { title: string; image: { src: string; alt: string; width: number; height: number } }[];
+  componentGallery?: { title: string; presentation?: string; image: { src: string; alt: string; width: number; height: number } }[];
   componentImages?: {
     navigation: { src: string; alt: string; width: number; height: number };
     payment: { src: string; alt: string; width: number; height: number };

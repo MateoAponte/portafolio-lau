@@ -366,67 +366,14 @@
     },
     "componentGallery": [
       {
-        "title": "Recovery",
-        "image": {
-          "src": "/images/projects/ecogiro-component-recovery.png",
-          "alt": "Recovery component specification with dimension annotations. Collection status, rating, date, material, and address.",
-          "width": 1693,
-          "height": 929
-        }
-      },
-      {
         "title": "Rewards",
         "image": {
           "src": "/images/projects/ecogiro-component-rewards.png",
           "alt": "Rewards component specification with dimension annotations. Locked reward, required points, and progress.",
           "width": 933,
           "height": 1686
-        }
-      },
-      {
-        "title": "Notification",
-        "image": {
-          "src": "/images/projects/ecogiro-component-notification.png",
-          "alt": "Notification component specification with dimension annotations. Collection notifications with timestamps and unread status.",
-          "width": 1339,
-          "height": 1175
-        }
-      },
-      {
-        "title": "Input - Address",
-        "image": {
-          "src": "/images/projects/ecogiro-component-address.png",
-          "alt": "Input - Address component specification with dimension annotations. Address search input.",
-          "width": 2172,
-          "height": 724
-        }
-      },
-      {
-        "title": "Medail",
-        "image": {
-          "src": "/images/projects/ecogiro-component-medal.png",
-          "alt": "Medail component specification with dimension annotations. Locked medal and eco-points requirement.",
-          "width": 1312,
-          "height": 1199
-        }
-      },
-      {
-        "title": "Radio Input - Schedule",
-        "image": {
-          "src": "/images/projects/ecogiro-component-schedule.png",
-          "alt": "Radio Input - Schedule component specification with dimension annotations. Selected and unselected collection time options.",
-          "width": 2167,
-          "height": 726
-        }
-      },
-      {
-        "title": "Text area - Description",
-        "image": {
-          "src": "/images/projects/ecogiro-component-description.png",
-          "alt": "Text area - Description component specification with dimension annotations. Text area for handoff instructions.",
-          "width": 2172,
-          "height": 724
-        }
+        },
+        "presentation": "tall"
       },
       {
         "title": "Map",
@@ -435,16 +382,38 @@
           "alt": "Map component specification with dimension annotations. Map with location pin, address, and confirmation action.",
           "width": 973,
           "height": 1617
-        }
+        },
+        "presentation": "tall"
       },
       {
-        "title": "Banner info",
+        "title": "Notification",
         "image": {
-          "src": "/images/projects/ecogiro-component-banner.png",
-          "alt": "Banner info component specification with dimension annotations. Reusable packaging guidance.",
-          "width": 2172,
-          "height": 724
-        }
+          "src": "/images/projects/ecogiro-component-notification.png",
+          "alt": "Notification component specification with dimension annotations. Collection notifications with timestamps and unread status.",
+          "width": 1339,
+          "height": 1175
+        },
+        "presentation": "regular"
+      },
+      {
+        "title": "Medail",
+        "image": {
+          "src": "/images/projects/ecogiro-component-medal.png",
+          "alt": "Medail component specification with dimension annotations. Locked medal and eco-points requirement.",
+          "width": 1312,
+          "height": 1199
+        },
+        "presentation": "regular"
+      },
+      {
+        "title": "Recovery",
+        "image": {
+          "src": "/images/projects/ecogiro-component-recovery.png",
+          "alt": "Recovery component specification with dimension annotations. Collection status, rating, date, material, and address.",
+          "width": 1693,
+          "height": 929
+        },
+        "presentation": "regular"
       },
       {
         "title": "Recovery detail",
@@ -453,7 +422,18 @@
           "alt": "Recovery detail component specification with dimension annotations. Collection date, material description, and address summary.",
           "width": 1356,
           "height": 1159
-        }
+        },
+        "presentation": "regular"
+      },
+      {
+        "title": "Radio Input - Schedule",
+        "image": {
+          "src": "/images/projects/ecogiro-component-schedule.png",
+          "alt": "Radio Input - Schedule component specification with dimension annotations. Selected and unselected collection time options.",
+          "width": 2167,
+          "height": 726
+        },
+        "presentation": "compact"
       },
       {
         "title": "Status",
@@ -462,7 +442,38 @@
           "alt": "EcoGiro status indicators: waiting, collected, cancelled, and accepted, with 72 by 24 px dimension annotations.",
           "width": 1536,
           "height": 1024
-        }
+        },
+        "presentation": "compact"
+      },
+      {
+        "title": "Input - Address",
+        "image": {
+          "src": "/images/projects/ecogiro-component-address.png",
+          "alt": "Input - Address component specification with dimension annotations. Address search input.",
+          "width": 2172,
+          "height": 724
+        },
+        "presentation": "compact"
+      },
+      {
+        "title": "Text area - Description",
+        "image": {
+          "src": "/images/projects/ecogiro-component-description.png",
+          "alt": "Text area - Description component specification with dimension annotations. Text area for handoff instructions.",
+          "width": 2172,
+          "height": 724
+        },
+        "presentation": "compact"
+      },
+      {
+        "title": "Banner info",
+        "image": {
+          "src": "/images/projects/ecogiro-component-banner.png",
+          "alt": "Banner info component specification with dimension annotations. Reusable packaging guidance.",
+          "width": 2172,
+          "height": 724
+        },
+        "presentation": "wide"
       }
     ]
   },

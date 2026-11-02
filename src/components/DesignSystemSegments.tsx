@@ -33,9 +33,9 @@ export function DesignSystemSegments({ system }: { system: typeof projectDesignS
         {segment.title === "Components" && !system.componentImages && !system.componentGallery && <div className="case-design-color-copy"><p>{t(system.components.introduction)}</p><ul className="case-component-list">{system.components.items.map(item => <li key={item}>{t(item)}</li>)}</ul><p>{t(system.components.conclusion)}</p></div>}
         {segment.title === "Components" && system.componentGallery && <>
           <div className="case-design-color-copy"><p>{t(system.components.introduction)}</p><p>{t(system.components.conclusion)}</p></div>
-          <div className="case-component-gallery">{system.componentGallery.map(component => <figure key={component.title}>
+          <div className="case-component-gallery">{system.componentGallery.map(component => <figure key={component.title} data-presentation={component.presentation ?? "regular"}>
             <figcaption>{t(component.title)}</figcaption>
-            <img src={component.image.src} alt={t(component.image.alt)} width={component.image.width} height={component.image.height} loading="lazy" />
+            <div className="case-component-stage"><img src={component.image.src} alt={t(component.image.alt)} width={component.image.width} height={component.image.height} loading="lazy" /></div>
           </figure>)}</div>
         </>}
         {segment.title === "Typography" && system.typographyImage && <div className="case-typography-layout">

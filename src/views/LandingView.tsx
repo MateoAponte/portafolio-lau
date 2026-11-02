@@ -79,7 +79,7 @@ export function LandingView() {
           <SectionWave /><SectionWave bottom />
           <div className="section-band-inner">
           <div className="about-layout" data-reveal="up">
-            <img className="portrait" src="/images/laura.png" alt={t("Laura Benavides")} width="176" height="176" />
+            <img className="portrait" src="/images/laura-about.jpeg" alt={t("Laura Benavides")} width="176" height="176" />
             <div className="about-copy">
               <h2 id="about-title" className="sr-only">{t("About me")}</h2>
               <p>{t("I'm a UX/UI Designer with a commercial mindset, creating meaningful digital experiences that balance user needs and business goals. I have experience across e-commerce, SaaS, and AI-powered products, working with UX research, user flows, wireframing, prototyping, responsive design, accessibility, and design systems.")}</p>

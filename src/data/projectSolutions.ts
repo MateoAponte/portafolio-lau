@@ -19,9 +19,9 @@ export const projectSolutions: Record<string, {
       { title: "03 — Get support", benefit: "Help stays within reach", paragraphs: ["Support is available directly from the persistent navigation.", "Users can contact a live agent when they need help with medication availability, an existing order, or the app itself—providing a fallback when the digital experience alone is not enough."] },
     ],
     images: [
-      { src: "/images/projects/mifarma-final-pickup.jpg", alt: "MiFarma pharmacy pickup screen with medication search, nearby pickup locations, and reservation confirmation.", width: 390, height: 844, frame: "/images/projects/mifarma-phone-frame.png", caption: "Pharmacy pickup" },
-      { src: "/images/projects/mifarma-home-mockup.png", alt: "MiFarma Home screen with medication search, pickup and delivery options, and active orders in an iPhone mockup.", width: 887, height: 1774, caption: "Home" },
-      { src: "/images/projects/mifarma-final-support-mockup.png", alt: "MiFarma support conversation with options for medication availability, order status, and pickup or delivery questions in an iPhone mockup.", width: 1189, height: 1323, caption: "Support", cutout: true },
+      { src: "/images/projects/mifarma-final-pickup.jpg", alt: "MiFarma pharmacy pickup screen with medication search, nearby pickup locations, and reservation confirmation.", width: 390, height: 844, frame: "/images/projects/mifarma-phone-frame.png", caption: "Pharmacy pickup", scrollable: false },
+      { src: "/images/projects/mifarma-final-home.jpg", alt: "MiFarma Home screen with medication search, pickup and delivery options, and active orders in an iPhone mockup.", width: 390, height: 1060, frame: "/images/projects/mifarma-phone-frame.png", caption: "Home", scrollable: false },
+      { src: "/images/projects/mifarma-final-support.jpg", alt: "MiFarma support conversation with options for medication availability, order status, and pickup or delivery questions in an iPhone mockup.", width: 390, height: 943, frame: "/images/projects/mifarma-phone-frame.png", caption: "Support", scrollable: false },
     ],
   },
 };
