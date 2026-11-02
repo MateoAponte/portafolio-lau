@@ -1,10 +1,11 @@
+import { t } from "../i18n";
 import type { ReactNode } from "react";
 
 export const contacts = [
   { id: "gmail", label: "Gmail", value: "laubenavides6@gmail.com", href: "mailto:laubenavides6@gmail.com", external: false },
   { id: "linkedin", label: "LinkedIn", value: "Professional profile", href: "https://www.linkedin.com/in/lauraben-uxui/", external: true },
   { id: "behance", label: "Behance", value: "Creative portfolio", href: "https://www.behance.net/laurabenavides2", external: true },
-  { id: "phone", label: "Mobile", value: "3195531725", href: "tel:3195531725", external: false },
+  { id: "phone", label: "Mobile", value: "+57 319-553-17-25", href: "tel:+573195531725", external: false },
 ] as const;
 
 function ContactIcon({ type }: { type: typeof contacts[number]["id"] }) {
@@ -28,10 +29,10 @@ export function ContactItems() {
               href={contact.href}
               target={contact.external ? "_blank" : undefined}
               rel={contact.external ? "noopener noreferrer" : undefined}
-              aria-label={`${contact.label}: ${contact.value}${contact.external ? " (opens in a new tab)" : ""}`}
+              aria-label={`${t(contact.label)}: ${t(contact.value)}${contact.external ? ` ${t("(opens in a new tab)")}` : ""}`}
             >
               <span className="contact-icon"><ContactIcon type={contact.id} /></span>
-              <span className="contact-copy"><span className="contact-label">{contact.label}</span><span className="contact-value">{contact.value}</span></span>
+              <span className="contact-copy"><span className="contact-label">{t(contact.label)}</span><span className="contact-value">{t(contact.value)}</span></span>
               <svg className="contact-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg>
             </a>
           </li>

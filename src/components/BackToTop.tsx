@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import { useScrollControlsVisible } from "../hooks/useScrollControlsVisible";
 
 export function BackToTop() {
@@ -19,7 +20,7 @@ export function BackToTop() {
     <button
       type="button"
       className={`back-to-top${visible ? " is-visible" : ""}`}
-      aria-label="Back to top"
+      aria-label={t("Back to top")}
       aria-hidden={!visible}
       inert={!visible}
       onClick={scrollToTop}

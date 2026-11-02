@@ -4,11 +4,13 @@ import { gsap } from "gsap";
 
 gsap.registerPlugin(useGSAP);
 
-export function useStarSpin(scope: RefObject<HTMLElement | null>) {
+export function useStarSpin(scope: RefObject<HTMLElement | null>, enabled = true) {
   useGSAP(() => {
+    if (!enabled) return;
     const media = gsap.matchMedia();
     media.add("(prefers-reduced-motion: no-preference)", () => {
-      gsap.to(".hero-name-star", {
+      const nameStar = scope.current?.querySelector(".hero-name-star");
+      if (nameStar) gsap.to(nameStar, {
         rotation: 360, duration: 32, ease: "none", repeat: -1,
         transformOrigin: "50% 50%",
       });
@@ -32,5 +34,5 @@ export function useStarSpin(scope: RefObject<HTMLElement | null>) {
     }, scope);
 
     return () => media.revert();
-  }, { scope });
+  }, { scope, dependencies: [enabled], revertOnUpdate: true });
 }

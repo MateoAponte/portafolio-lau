@@ -1,3 +1,4 @@
+import { t } from "../i18n";
 import { useEffect, useRef, useState } from "react";
 import { useScrollControlsVisible } from "../hooks/useScrollControlsVisible";
 
@@ -33,7 +34,7 @@ export function CompactNavigation({ detailSlug }: { detailSlug?: string }) {
       list.scrollTo({ left: list.scrollLeft + item.left - bounds.left - (bounds.width - item.width) / 2, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
     }
   }, [active, visible]);
-  return <nav className={`compact-nav ${visible ? "is-visible" : ""}`} aria-label={detailSlug ? "Case study sections" : "Portfolio sections"} aria-hidden={!visible} inert={!visible}>
-    <div className="compact-nav-inner">{detailSlug && <a className="compact-brand" href="#projects">← Projects</a>}<div className="compact-links" ref={linkList}>{links.map(([id, label]) => <a key={id} href={detailSlug ? `#/projects/${detailSlug}?section=${id}` : `#${id}`} aria-current={active === id ? "location" : undefined}><svg className="nav-active-star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C22 13 27 18 40 20C27 22 22 27 20 40C18 27 13 22 0 20C13 18 18 13 20 0Z" fill="currentColor" /></svg><span className="nav-label" data-label={label}>{label}</span></a>)}</div></div>
+  return <nav className={`compact-nav ${visible ? "is-visible" : ""}`} aria-label={t(detailSlug ? "Case study sections" : "Portfolio sections")} aria-hidden={!visible} inert={!visible}>
+    <div className="compact-nav-inner">{detailSlug && <a className="compact-brand" href="#projects">{t("← Projects")}</a>}<div className="compact-links" ref={linkList}>{links.map(([id, label]) => <a key={id} href={detailSlug ? `#/projects/${detailSlug}?section=${id}` : `#${id}`} aria-current={active === id ? "location" : undefined}><svg className="nav-active-star" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0C22 13 27 18 40 20C27 22 22 27 20 40C18 27 13 22 0 20C13 18 18 13 20 0Z" fill="currentColor" /></svg><span className="nav-label" data-label={t(label)}>{t(label)}</span></a>)}</div></div>
   </nav>;
 }

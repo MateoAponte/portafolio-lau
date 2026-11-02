@@ -1,7 +1,11 @@
+import { t } from "./i18n";
+import { useLocale } from "./i18n";
+import { LanguageToggle } from "./components/LanguageToggle";
 import { useLayoutEffect, useRef, useSyncExternalStore } from "react";
 import { LandingView } from "./views/LandingView";
 import { ProjectDetailView } from "./views/ProjectDetailView";
 import { projects } from "./data/projects";
+import { projectOverviews } from "./data/projectOverviews";
 import { BackToTop } from "./components/BackToTop";
 
 const subscribe = (notify: () => void) => {
@@ -10,6 +14,7 @@ const subscribe = (notify: () => void) => {
 };
 
 export function App() {
+  const locale = useLocale();
   const hash = useSyncExternalStore(subscribe, () => window.location.hash, () => "");
   const [route, query = ""] = hash.split("?");
   const section = new URLSearchParams(query).get("section");
@@ -18,10 +23,16 @@ export function App() {
   const previousRoute = useRef<string | null>(null);
 
   useLayoutEffect(() => {
+    document.documentElement.lang = locale;
+    document.title = project ? `${t(projectOverviews[project.slug]?.name ?? "Project name")} — Laura Benavides` : `Laura Benavides — ${t("UX/UI Designer")}`;
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (description) description.content = t("Laura Benavides — UX/UI designer. Design thinking, user research, and intuitive digital experiences.");
+  }, [locale, project]);
+
+  useLayoutEffect(() => {
     const initialLoad = previousRoute.current === null;
     const returningFromDetail = previousRoute.current?.startsWith("#/projects/") && !isDetail;
     previousRoute.current = route;
-    document.title = project ? `${project.name} — Laura Benavides` : "Laura Benavides — UX/UI Designer";
     if (isDetail && section) {
       const target = document.getElementById(section);
       if (target) { target.scrollIntoView(); target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true }); }
@@ -40,6 +51,6 @@ export function App() {
     }
   }, [hash, isDetail, project, section, route]);
 
-  if (isDetail && !project) return <main className="case-study" data-view="project-detail"><a href="#introduction">← Back to home</a><h1 tabIndex={-1}>Project not found</h1><p>This case study is not available. Explore the demo projects instead.</p></main>;
-  return <>{project ? <ProjectDetailView key={project.slug} project={project} /> : <LandingView />}<BackToTop /></>;
+  if (isDetail && !project) return <main className="case-study" data-view="project-detail"><a href="#introduction">{t("← Back to home")}</a><h1 tabIndex={-1}>{t("Project not found")}</h1><p>{t("This case study is not available. Explore the demo projects instead.")}</p></main>;
+  return <>{project ? <ProjectDetailView key={project.slug} project={project} /> : <LandingView />}<BackToTop /><LanguageToggle /></>;
 }

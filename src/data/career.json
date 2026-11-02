@@ -1,44 +1,58 @@
 {
   "background": [
     {
-      "title": "Technical Support",
-      "organization": "GoDaddy",
+      "title": "Web Designer & Migration Specialist",
+      "organization": "Nationwide Marketing Group",
+      "start": "2025",
+      "end": "2026",
+      "brief": "Designing and migrating e-commerce experiences through UX/UI principles, responsive design, accessibility, information architecture, and front-end implementation."
+    },
+    {
+      "title": "UX/UI Designer Intern",
+      "organization": "Kromee",
+      "start": "2025",
+      "end": "2026",
+      "brief": "Designing SaaS and digital product experiences through user-centered design, UX research, information architecture, wireframing, prototyping, and design systems."
+    },
+    {
+      "title": "Product & UX/UI Designer",
+      "organization": "EcoGiro · Young AI Leaders Bogotá",
+      "start": "2025",
+      "brief": "Designed an AI-assisted digital product, translating user research and pain points into accessible user flows, intuitive interfaces, and interactive prototypes."
+    },
+    {
+      "title": "Technical Web Support Representative",
+      "organization": "GoDaddy · Sutherland",
       "start": "2024",
-      "end": "2026",
-      "brief": "Helping customers navigate hosting, domains, and website issues through clear guidance and practical troubleshooting."
-    },
-    {
-      "title": "UI Designer",
-      "organization": "Internship company",
-      "start": "2025",
-      "brief": "Exploring interface concepts through wireframes, visual design, and interactive prototypes alongside a design team."
-    },
-    {
-      "title": "UI/UX Designer & Web Migration Specialist",
-      "organization": "Primeworks",
-      "start": "2025",
-      "end": "2026",
-      "brief": "Designing digital experiences and supporting website migrations, with attention to content structure, usability, and visual consistency."
+      "end": "2025",
+      "brief": "Supported SaaS and web products through hands-on troubleshooting, website building and migration, gaining direct insight into user needs, behaviors, and digital pain points."
     }
   ],
   "education": [
     {
-      "title": "UX Cristopher Megapack",
+      "title": "Megapack UX/UI Advanced",
       "organization": "UX Cristopher",
       "start": "2026",
-      "brief": "In progress"
+      "status": "In progress",
+      "brief": "Advanced training in AI-assisted design, Claude + Figma workflows, design systems, Auto Layout, and advanced UI prototyping."
     },
     {
       "title": "UX/UI Design Bootcamp",
       "organization": "BIT, Universidad Iberoamericana",
       "start": "2025",
-      "brief": "Hands-on exploration of user research, information architecture, and interface design, from early discovery to interactive prototypes."
+      "brief": "End-to-end UX/UI training covering user research, problem definition, information architecture, user flows, wireframing, UI design, prototyping, and usability testing."
     },
     {
       "title": "Web Development Course (HTML, CSS, JS)",
       "organization": "Tecnológico de Monterrey",
       "start": "2025",
-      "brief": "Building a foundation in HTML, CSS, and JavaScript to translate interface ideas into responsive web experiences."
+      "brief": "Fundamentals of HTML, CSS, and JavaScript."
+    },
+    {
+      "title": "Advanced English II",
+      "organization": "Universidad Pedagógica Nacional",
+      "start": "2024",
+      "brief": "English training focused on professional communication, fluency, comprehension, and effective communication in bilingual environments."
     }
   ]
 }
