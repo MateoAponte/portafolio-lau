@@ -91,7 +91,7 @@ export function LandingView() {
         </section>
   
         <section id="projects" className="projects" aria-labelledby="projects-title">
-          <SectionTitle id="projects-title" align="right">{t("Case studies")}</SectionTitle>
+          <SectionTitle id="projects-title" align="right">{t("Projects")}</SectionTitle>
           <ProjectList />
         </section>
   
