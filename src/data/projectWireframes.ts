@@ -1,8 +1,11 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectWireframes: Record<string, {
   paragraphs: string[];
   items: { title: string; description: string }[];
-  images: { src: string; alt: string; width: number; height: number }[];
+  images: { src: string; alt: string; width: number; height: number; scrollable?: boolean }[];
 }> = {
+  ecogiro: ecogiro.wireframes,
   "luma-care": {
     paragraphs: [
       "Before defining the final visual language, I used wireframes to validate hierarchy, navigation, and the information required at each stage of the medication journey.",

@@ -1,10 +1,14 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectOutcomes: Record<string, {
   title: string;
   subtitle: string;
   paragraphs: string[];
   learnings: { title: string; description: string }[];
   takeaway: string;
+  metrics?: { title: string; description: string }[];
 }> = {
+  ecogiro: ecogiro.outcome,
   "luma-care": {
     title: "Outcome & Reflection",
     subtitle: "Simplicity is an accessibility decision",

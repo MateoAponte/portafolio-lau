@@ -2,9 +2,10 @@ import { useSyncExternalStore } from "react";
 import spanish from "./es.json";
 import guides from "./es-guides.json";
 import accessibility from "./es-accessibility.json";
+import ecogiro from "./es-ecogiro.json";
 
 export type Locale = "en" | "es";
-const dictionary: Record<string, string> = { ...spanish, ...guides, ...accessibility };
+const dictionary: Record<string, string> = { ...spanish, ...guides, ...accessibility, ...ecogiro };
 const storageKey = "laura-portfolio-language";
 let locale: Locale = "en";
 try { if (localStorage.getItem(storageKey) === "es") locale = "es"; } catch { /* Storage can be unavailable in private contexts. */ }

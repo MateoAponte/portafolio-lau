@@ -1,10 +1,14 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectProblems: Record<string, {
   title: string;
   paragraphs: string[];
   questionTitle: string;
   question: string;
   images: { src: string; alt: string; width: number; height: number }[];
+  insights?: { title: string; description: string; image?: { src: string; alt: string; width: number; height: number } }[];
 }> = {
+  ecogiro: ecogiro.problem,
   "luma-care": {
     title: "Accessing medication shouldn't require uncertainty",
     paragraphs: [

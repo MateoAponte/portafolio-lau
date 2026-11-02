@@ -5,6 +5,7 @@ English remains the source language. Spanish copy is maintained in these catalog
 - `es.json`: homepage and MiFarma case-study content.
 - `es-guides.json`: instructional case-study templates and other project cards.
 - `es-accessibility.json`: image descriptions, accessible labels, and metadata.
+- `es-ecogiro.json`: EcoGiro case-study copy and image descriptions.
 
 Use `t(sourceText)` at the point where text or an accessible label is rendered.
 Keep slugs, section IDs, class names, URLs, image paths, proper names, and data

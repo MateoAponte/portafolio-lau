@@ -250,6 +250,8 @@ p { text-wrap: pretty; }
 .project-card { min-width: 0; }
 .project-card[data-project="mifarma"] { --project-surface: #e4f8ff; --color-accent: #17636b; --color-focus-ring: #17636b; }
 .project-card[data-project="mifarma"] h3 { color: #17636b; }
+.project-card[data-project="ecogiro"] { --project-surface: #e6f0e8; --color-focus-ring: #1e8f5b; }
+.project-card[data-project="ecogiro"] .project-read { color: #1e8f5b; }
 .project-card-link { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2rem; color: inherit; text-decoration: none; border-radius: 16px; }
 .project-card-copy { padding-block: 1rem; }
 .project-card h3 { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-size: 1.75rem; margin-bottom: .75rem; }
@@ -351,6 +353,13 @@ p { text-wrap: pretty; }
 .case-design-color-hex { display: block; margin-top: .75rem; font-size: .8125rem; color: var(--color-text-secondary); }
 .case-design-color-usage { display: block; margin-top: .25rem; font-size: .75rem; line-height: 1.4; color: var(--color-text-secondary); }
 .case-typography-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); align-items: center; gap: 2rem; margin-top: 2rem; }
+.case-typography-live { display: grid; justify-items: center; gap: 1.5rem; padding: 1.5rem 0; line-height: 1.2; }
+.case-typography-live > span:first-child { font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; color: var(--color-text-secondary); }
+.case-typography-live > span:last-child { font-size: clamp(3rem, 7vw, 4.5rem); font-weight: 500; color: var(--project-accent); }
+.case-lucide-icons { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2rem 1rem; padding: 0; margin: 2.5rem 0 0; list-style: none; }
+.case-lucide-icons li { display: grid; place-items: center; min-block-size: 1.75rem; min-width: 0; color: var(--project-accent); }
+.case-lucide-icons li > :is(svg, img) { display: block; width: 1.75rem; height: 1.75rem; object-fit: contain; }
+@media (max-width: 600px) { .case-lucide-icons { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .case-iconography-specimen { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; width: min(100%, 640px); margin-top: 2rem; }
 .case-iconography-half { display: grid; gap: 2rem; }
 .case-iconography-row { position: relative; aspect-ratio: 251 / 38; overflow: hidden; }
@@ -358,6 +367,11 @@ p { text-wrap: pretty; }
 .case-buttons-specimen { width: min(100%, 760px); margin-top: 2rem; }
 .case-buttons-specimen img { display: block; width: 100%; height: auto; }
 .case-components-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+.case-component-gallery { columns: 2; column-gap: 2rem; margin-top: 2.5rem; }
+.case-component-gallery figure { break-inside: avoid; margin-bottom: 2.5rem; }
+.case-component-gallery figcaption { margin: 0 0 1rem; font-size: 1rem; font-weight: 600; color: var(--case-link, var(--project-accent)); }
+.case-component-gallery img { display: block; width: 100%; height: auto; max-height: 480px; object-fit: contain; object-position: left top; }
+@media (max-width: 600px) { .case-component-gallery { columns: 1; } }
 .case-components-column { display: grid; align-content: start; gap: 2rem; min-width: 0; }
 .case-components-layout figure > img { display: block; width: 100%; height: auto; }
 .case-components-layout figcaption { margin: 0 0 1rem; font-weight: 600; }
@@ -491,15 +505,15 @@ html { scroll-padding-top: 6rem; scroll-behavior: smooth; }
 .process-mobile-preview > .concept-preview { box-sizing: border-box; width: var(--process-visual-width); height: var(--process-visual-height); max-width: none; max-height: none; aspect-ratio: auto; margin-inline: auto; }
 .process-story .process-mockup { overflow: hidden; }
 .process-story .process-mockup img { width: 100%; height: 100%; object-fit: cover; }
-.process-story .process-mockup--screen { position: relative; overflow: visible; }
+.process-mockup--screen { position: relative; overflow: visible; aspect-ratio: 887 / 1774; }
 .process-scroll-cue { position: absolute; right: calc(100% - .5rem); top: 50%; translate: 0 -50%; display: flex; flex-direction: column; align-items: center; gap: .625rem; width: 24px; color: var(--project-accent); font-size: .75rem; line-height: 1.4; pointer-events: none; }
 .process-scroll-cue > span { writing-mode: vertical-rl; }
 .process-mockup-scroll { position: absolute; inset: 6.9% 10.9% 6.1% 10.9%; overflow-y: auto; border-radius: 12% / 5.5%; background: #fff; scrollbar-width: none; }
 .process-mockup-scroll::-webkit-scrollbar { display: none; }
-.process-story .process-mockup-scroll > img { display: block; width: 100%; height: auto; }
+.process-mockup-scroll > img, .process-story .process-mockup-scroll > img { display: block; width: 100%; height: auto; }
 .process-mockup-scroll--static { overflow: hidden; }
 .process-story .process-mockup-scroll--static > img { width: 100%; height: auto; object-fit: initial; }
-.process-story img.process-mockup-frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
+img.process-mockup-frame, .process-story img.process-mockup-frame { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; pointer-events: none; }
 .process-story .process-device-screen { height: 100%; min-height: 0; overflow-y: auto; }
 .process-mobile-preview > .concept-preview { overflow-y: auto; }
 @keyframes process-screen-in { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: none; } }
@@ -673,6 +687,70 @@ body:has(.case-study[data-project="mifarma"]) { background: #f6f6f6; }
   .case-study[data-project="mifarma"] .background-star:nth-child(even) { left: calc(100% - 18px) !important; }
 }
 
+/* EcoGiro's palette is scoped to its case study and persistent controls. */
+body:has(.case-study[data-project="ecogiro"]) { background: #fefaef; }
+.case-study[data-project="ecogiro"],
+.case-study[data-project="ecogiro"] ~ .back-to-top,
+body:has(.case-study[data-project="ecogiro"]) .language-toggle {
+  --color-background: #fefaef;
+  --color-surface-brand: #f0f9f6;
+  --color-surface-project-primary: #f0f9f6;
+  --color-surface-project-secondary: #f0f9f6;
+  --color-surface-highlight: #d7e9fb;
+  --color-text-primary: #242424;
+  --color-text-secondary: #55534f;
+  --color-text-helper: #84827f;
+  --color-accent: #1e8f5b;
+  --color-focus-ring: #1e8f5b;
+  --color-action-primary: #1e8f5b;
+  --color-on-action-primary: #fff;
+  --color-input-background: #fff;
+  --color-disabled: #f7f3ea;
+  --color-destructive: #e8b0a7;
+  --color-status-active: #d7e9fb;
+  --project-accent: #1e8f5b;
+  --project-surface: #f0f9f6;
+}
+.case-study[data-project="ecogiro"] :is(h1, h2, h3, h4, .case-nav a, .case-end-links a, .compact-brand, .compact-links a[aria-current]) { color: var(--color-accent); }
+.case-study[data-project="ecogiro"] .compact-nav { background: var(--color-background); }
+.case-study[data-project="ecogiro"] :is(.case-tags li, .case-closing, .concept-options > div) { background: var(--project-surface); }
+.case-study[data-project="ecogiro"] .concept-screen { background: var(--color-background); }
+.case-study[data-project="ecogiro"] .concept-action { background: var(--color-action-primary); color: var(--color-on-action-primary); }
+.case-study[data-project="ecogiro"] :is(input, select, textarea) { background: var(--color-input-background); }
+.case-study[data-project="ecogiro"] :is(button, input, select, textarea):disabled { background: var(--color-disabled); color: var(--color-text-helper); }
+.case-study[data-project="ecogiro"] ::selection { background: var(--color-status-active); color: var(--color-text-primary); }
+body:has(.case-study[data-project="ecogiro"]) .language-toggle button:hover:not([aria-pressed="true"]) { background: var(--project-surface); }
+.case-study[data-project="ecogiro"] .case-overview-phone { max-width: 290px; }
+.case-study[data-project="ecogiro"] .case-value .process-mockup-scroll--static > img { width: 100%; height: 100%; object-fit: contain; }
+.case-study[data-project="ecogiro"] .process-story .process-mockup-scroll--static > img { width: 100%; height: 100%; object-fit: contain; }
+.case-study[data-project="ecogiro"] .case-wire-grid figure:has(.process-mockup) { aspect-ratio: auto; overflow: visible; border-radius: 0; }
+.case-study[data-project="ecogiro"] .case-wire-grid .process-mockup { aspect-ratio: 240 / 473; }
+.case-study[data-project="ecogiro"] .case-wire-grid .process-mockup-scroll--static > img { width: 100%; height: 100%; object-fit: contain; }
+.case-benefit-list, .process-evidence { padding: 2rem; background: var(--project-surface); border-radius: 16px; }
+.process-evidence { overflow-wrap: anywhere; }
+.process-evidence ul, .case-component-list { padding-left: 1.25rem; line-height: 1.7; }
+.process-evidence li + li, .case-component-list li + li { margin-top: .75rem; }
+.case-study .process-evidence h3 { margin-top: 0; }
+.case-research-insights { display: grid; gap: 1.5rem; margin: 2rem 0 0; padding: 2rem; background: var(--project-surface); border-radius: 16px; }
+.case-research-insights dd { margin: .5rem 0 0; line-height: 1.7; color: var(--color-text-secondary); }
+.case-research-insights--illustrated { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; background: transparent; align-items: stretch; }
+.case-research-insights--illustrated > div { display: flex; flex-direction: column; padding: 1.5rem; background: var(--project-surface); border-radius: 24px; }
+.case-research-insights--illustrated > div:nth-child(2) { background: var(--color-status-active); }
+.case-research-insights--illustrated dt { font-family: var(--font-body); font-size: 1rem; line-height: 1.5; color: var(--color-text-primary); }
+.case-research-insights--illustrated dd { display: flex; flex-direction: column; flex: 1; gap: 1rem; }
+.case-research-insights--illustrated img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; margin-top: auto; }
+@media (max-width: 800px) {
+  .case-research-insights--illustrated { grid-template-columns: minmax(0, 1fr); }
+  .case-research-insights--illustrated img { max-width: 240px; margin-inline: auto; }
+}
+.case-study[data-project="ecogiro"] .case-architecture-layout > div:first-child p + p,
+.case-study[data-project="ecogiro"] [data-section="problem-statement"] > p + p { margin-top: 1rem; }
+.case-validation { margin-top: 2rem; }
+@media (max-width: 600px) {
+  .case-benefit-list, .process-evidence, .case-research-insights { padding: 1.25rem; }
+  .case-research-insights--illustrated { padding: 0; }
+}
+
 /* Persistent, keyboard-accessible language selection follows the existing nav. */
 .language-toggle { position: fixed; top: max(.75rem, env(safe-area-inset-top)); right: max(var(--layout-gutter), env(safe-area-inset-right)); z-index: 35; display: flex; gap: 2px; padding: 2px; background: var(--color-background); border: 1px solid var(--color-accent); border-radius: 999px; }
 .language-toggle.is-below-nav { top: calc(4rem + .75rem + env(safe-area-inset-top)); }
@@ -682,4 +760,69 @@ body:has(.case-study[data-project="mifarma"]) { background: #f6f6f6; }
 body:has(.case-study[data-project="mifarma"]) .language-toggle { --color-accent: #17636b; --color-background: #f6f6f6; --color-action-primary: #e4f8ff; --color-focus-ring: #17636b; }
 @media (max-width: 600px) {
   .language-toggle { right: .75rem; }
+}
+
+/* Case-study polish: retain each project's palette and shared portfolio type. */
+.case-study[data-view="project-detail"] {
+  --case-link: color-mix(in srgb, var(--project-accent) 82%, #000);
+  --case-hover: color-mix(in srgb, var(--project-accent) 9%, var(--color-background));
+  --case-pressed: color-mix(in srgb, var(--project-accent) 14%, var(--color-background));
+  --case-edge: color-mix(in srgb, var(--project-accent) 22%, var(--color-background));
+  --color-text-secondary: color-mix(in srgb, var(--color-text-primary) 82%, var(--project-accent));
+  scrollbar-color: var(--project-accent) var(--color-background);
+  caret-color: var(--project-accent);
+}
+.case-study[data-view="project-detail"] :is(h3, h4, .case-tags li, .case-design-segment-label > span) { color: var(--case-link); }
+.case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-brand, .compact-links a) {
+  border-radius: 8px;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .25em;
+  transition: color var(--duration-quick) var(--ease-out), background-color var(--duration-quick) var(--ease-out);
+}
+.case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a) { gap: .5rem; padding: .5rem .75rem; color: var(--case-link); }
+.case-study[data-view="project-detail"] .compact-nav { border-bottom-color: var(--case-edge); }
+.case-study[data-view="project-detail"] .compact-links a[aria-current] { color: var(--case-link); background: var(--project-surface); }
+.case-study[data-view="project-detail"] .process-indicators button {
+  color: var(--case-link);
+  border-color: var(--case-edge);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--duration-quick) var(--ease-out), background-color var(--duration-quick) var(--ease-out), border-color var(--duration-quick) var(--ease-out), scale var(--duration-quick) var(--ease-smooth-out);
+}
+.case-study[data-view="project-detail"] .process-indicators button[aria-current="step"] {
+  font-weight: 700;
+}
+.case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-nav a, .process-indicators button, .process-mockup-scroll):focus-visible {
+  outline: 2px solid var(--case-link);
+  outline-offset: 4px;
+}
+.case-study[data-view="project-detail"] .compact-nav a:focus-visible { outline-offset: -2px; }
+.case-study[data-view="project-detail"] :is(.case-design-segment + .case-design-segment, .case-outcome-takeaway) { border-top-color: var(--case-edge); }
+.case-study[data-view="project-detail"] .case-design-palette { grid-template-columns: repeat(auto-fit, minmax(min(100%, 90px), 1fr)); }
+.case-study[data-view="project-detail"] :is(.case-design-color-hex, .case-design-color-usage) { font-size: .875rem; }
+.case-study[data-view="project-detail"] .case-design-color-hex { font-variant-numeric: tabular-nums; }
+.case-study[data-view="project-detail"] .case-end-links a:last-child > span { display: inline-block; transition: translate var(--duration-quick) var(--ease-smooth-out); }
+@media (hover: hover) and (pointer: fine) {
+  .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-nav a):hover { background: var(--case-hover); color: var(--case-link); text-decoration: underline; }
+  .case-study[data-view="project-detail"] .process-indicators button:hover { background: var(--case-hover); color: var(--case-link); border-color: var(--project-accent); }
+  .case-study[data-view="project-detail"] .case-end-links a:last-child:hover > span { translate: 3px 0; }
+}
+.case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-nav a):active { background: var(--case-pressed); color: var(--case-link); }
+.case-study[data-view="project-detail"] .process-indicators button:active { background: var(--case-pressed); color: var(--case-link); scale: .96; }
+.case-study[data-view="project-detail"] .process-indicators button[aria-current="step"],
+.case-study[data-view="project-detail"] .process-indicators button[aria-current="step"]:is(:hover, :active) { background: var(--color-action-primary); color: var(--color-on-action-primary); border-color: var(--project-accent); }
+.case-study[data-project="mifarma"] .process-indicators button[aria-current="step"],
+.case-study[data-project="mifarma"] .process-indicators button[aria-current="step"]:is(:hover, :active) { background: #477282; color: #fff; border-color: #477282; }
+body:has(.case-study[data-view="project-detail"]) .language-toggle button { transition: color var(--duration-quick) var(--ease-out), background-color var(--duration-quick) var(--ease-out); }
+body:has(.case-study[data-view="project-detail"]) .language-toggle button[aria-pressed="true"] { background: color-mix(in srgb, var(--color-accent) 82%, #000); }
+body:has(.case-study[data-view="project-detail"]) .language-toggle button:active { background: color-mix(in srgb, var(--color-accent) 14%, var(--color-background)); color: color-mix(in srgb, var(--color-accent) 82%, #000); }
+.case-study[data-view="project-detail"] ~ .back-to-top { background: var(--project-surface); color: var(--project-accent); }
+@media (hover: hover) and (pointer: fine) {
+  .case-study[data-view="project-detail"] ~ .back-to-top:hover { background: color-mix(in srgb, var(--project-accent) 82%, #000); color: #fff; }
+}
+.case-study[data-view="project-detail"] ~ .back-to-top:active { background: color-mix(in srgb, var(--project-accent) 72%, #000); color: #fff; }
+@media (prefers-reduced-motion: reduce) {
+  .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-nav a, .process-indicators button, .case-end-links a > span),
+  body:has(.case-study[data-view="project-detail"]) .language-toggle button { transition: none; }
+  .case-study[data-view="project-detail"] .process-indicators button:active { scale: 1; }
+  .case-study[data-view="project-detail"] .case-end-links a:last-child:hover > span { translate: none; }
 }

@@ -1,5 +1,36 @@
 # Diseño del portfolio
 
+## Estados de interacción en detalles de proyecto
+
+El pulido conserva las fuentes, imágenes, contenido y paletas de cada proyecto.
+Los enlaces y textos pequeños usan una tinta derivada del acento para mejorar
+contraste. Hover, pulsación, foco y sección actual tienen tratamientos distintos.
+Los enlaces usan fondos suaves; los botones de proceso mantienen su selección
+visible y una respuesta de escala de .96 al pulsar. Las transiciones reutilizan
+los tokens existentes y se anulan con movimiento reducido. Las imágenes y
+etiquetas informativas no reciben efectos que sugieran una acción inexistente.
+
+La paleta se distribuye según la cantidad de colores y el espacio disponible.
+Las etiquetas hex y de uso mantienen un mínimo de .875rem. Los números del
+proceso y los códigos hex usan cifras tabulares. Los acentos de la sección
+de sistema siguen el proyecto actual, evitando filtrar el teal de MiFarma a
+EcoGiro.
+
+Verificación: compilación de producción y cálculo estático del contraste de
+texto en estados default, hover y pressed. No se realizó comprobación visual
+en navegador: el inicio del servidor local no fue autorizado.
+
+## Presentación de capturas de EcoGiro
+
+Las capturas de EcoGiro se presentan con el mismo recurso de marco y la misma
+ventana interior de MiFarma: `mifarma-phone-frame.png`, mediante `ProcessMockup`.
+Esta regla se aplica al overview, al proceso y a las imágenes de solución y
+wireframes cuando se incorporen. El contenido mantiene sus proporciones y puede
+desplazarse dentro del teléfono con ratón, tacto o teclado. Se conservan los
+límites de tamaño del proceso de MiFarma en escritorio y móvil.
+Los mockups de MiFarma que ya incluyen el contorno en la imagen se muestran
+directamente para evitar un segundo marco.
+
 Referencia visual vinculante: PDF de captura de Lovable proporcionado por el usuario
 el 28 de octubre de 2026. Reproducir su composición, no introducir otra dirección.
 

@@ -1,8 +1,12 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectProcess: Record<string, Partial<Record<number, {
   title: string;
   paragraphs: string[];
-  image: { src: string; alt: string; width: number; height: number; caption: string; frame?: string; scrollable?: boolean };
+  image?: { src: string; alt: string; width: number; height: number; caption: string; frame?: string; scrollable?: boolean };
+  evidence?: { title: string; description: string; items: string[] };
 }>>> = {
+  ecogiro: ecogiro.process,
   "luma-care": {
     0: {
       title: "Discovery",

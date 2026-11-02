@@ -1,9 +1,12 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectSolutions: Record<string, {
   subtitle: string;
   paragraphs: string[];
   features: { title: string; benefit: string; paragraphs: string[] }[];
   images: { src: string; alt: string; width: number; height: number; frame?: string; caption: string; scrollable?: boolean; cutout?: boolean }[];
 }> = {
+  ecogiro: ecogiro.solution,
   "luma-care": {
     subtitle: "Turning uncertainty into visibility",
     paragraphs: [

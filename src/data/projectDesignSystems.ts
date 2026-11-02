@@ -1,12 +1,19 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectDesignSystems: Record<string, {
   subtitle: string;
   paragraphs: string[];
   foundations: { title: string; benefit: string; paragraphs: string[] }[];
   palette: { hex: string; usage: string }[];
+  paletteLabel?: string;
   templateSegments: { title: string; benefit: string }[];
   typographyImage?: { src: string; alt: string; width: number; height: number };
+  typographySpecimen?: { family: string; sample: string };
+  iconLibrary?: string;
   iconographyImage?: { src: string; alt: string; width: number; height: number };
+  iconographySvgs?: string[];
   buttonsImage?: { src: string; alt: string; width: number; height: number };
+  componentGallery?: { title: string; image: { src: string; alt: string; width: number; height: number } }[];
   componentImages?: {
     navigation: { src: string; alt: string; width: number; height: number };
     payment: { src: string; alt: string; width: number; height: number };
@@ -14,6 +21,7 @@ export const projectDesignSystems: Record<string, {
   };
   components: { title: string; benefit: string; introduction: string; items: string[]; conclusion: string };
 }> = {
+  ecogiro: ecogiro.system,
   "luma-care": {
     subtitle: "Designed for clarity and familiarity",
     componentImages: {
@@ -27,12 +35,11 @@ export const projectDesignSystems: Record<string, {
       width: 671,
       height: 200,
     },
-    iconographyImage: {
-      src: "/images/projects/mifarma-iconography.png",
-      alt: "MiFarma teal icon set for Home, scanning, shopping, sign out, location, help, menu, confirmation, pharmacy, delivery, status, time, orders, phone, chat, and accessibility.",
-      width: 251,
-      height: 254,
-    },
+    iconographySvgs: [
+      "material-symbols_home-rounded", "Vector", "Vector-1", "Group", "Vector-2", "Vector-3",
+      "Vector-4", "fluent-mdl2_completed-solid", "Vector-5", "Vector-6", "Vector-7", "Group-1",
+      "ic_round-output", "mingcute_time-line", "Group-2", "Vector-8",
+    ].map(name => `/images/projects/mifarma-icons/${name}.svg`),
     typographyImage: {
       src: "/images/projects/mifarma-typography.png",
       alt: "KoHo typeface specimen with the font name and an Aa sample in teal.",

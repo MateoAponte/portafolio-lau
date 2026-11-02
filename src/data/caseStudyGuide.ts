@@ -2,11 +2,12 @@ import type { Project } from "./projects";
 
 // Detail-only copy: the homepage continues to use the original project records.
 export function caseStudyGuide(source: Project): Project {
+  if (source.slug === "ecogiro") return source;
   return {
     ...source,
-    name: "Project name",
+    name: source.slug === "ecogiro" ? source.name : "Project name",
     year: "Project year",
-    title: "Project name",
+    title: source.slug === "ecogiro" ? source.name : "Project name",
     summary: "Summarize the product or experience, who it was designed for, and the main problem it addresses. Keep this to 2–3 lines. Briefly explain how the project started.",
     role: "Your role",
     duration: "Project duration",

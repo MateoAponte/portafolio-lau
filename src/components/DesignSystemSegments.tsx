@@ -1,5 +1,6 @@
 import { t } from "../i18n";
 import type { projectDesignSystems } from "../data/projectDesignSystems";
+import { EcoGiroIcons } from "./EcoGiroIcons";
 
 export function DesignSystemSegments({ system }: { system: typeof projectDesignSystems[string] }) {
   const color = system.foundations[0];
@@ -11,7 +12,7 @@ export function DesignSystemSegments({ system }: { system: typeof projectDesignS
         <h3 id="design-color-title" className="case-design-segment-label"><span>01</span>{t(color.title)}</h3>
         <h4 className="case-design-segment-benefit">{t(color.benefit)}</h4>
         <div className="case-design-color-copy">{color.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>
-        <ul className="case-design-palette" aria-label={t("MiFarma color palette")}>{system.palette.map(color => <li key={color.hex}>
+        <ul className="case-design-palette" aria-label={t(system.paletteLabel ?? "MiFarma color palette")}>{system.palette.map(color => <li key={color.hex}>
           <div className="case-design-swatch" style={{ backgroundColor: color.hex }} aria-hidden="true" />
           <span className="case-design-color-hex">{t(color.hex)}</span>
           <span className="case-design-color-usage">{t(color.usage, "palette")}</span>
@@ -20,6 +21,23 @@ export function DesignSystemSegments({ system }: { system: typeof projectDesignS
       {system.templateSegments.map((segment, index) => <section className="case-design-segment" key={segment.title} aria-labelledby={`design-segment-${index + 2}`}>
         <h3 id={`design-segment-${index + 2}`} className="case-design-segment-label"><span>{String(index + 2).padStart(2, "0")}</span>{t(segment.title)}</h3>
         <h4 className="case-design-segment-benefit">{t(segment.benefit)}</h4>
+        {!({ Typography: system.typographyImage ?? system.typographySpecimen, Iconography: system.iconographyImage ?? system.iconographySvgs, Buttons: system.buttonsImage } as Record<string, unknown>)[segment.title] && segment.title !== "Components" && <div className="case-design-color-copy">{system.foundations.find(foundation => foundation.title === segment.title)?.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>}
+        {segment.title === "Typography" && system.typographySpecimen && <div className="case-typography-layout">
+          <div className="case-typography-live" style={{ fontFamily: `"${system.typographySpecimen.family}", sans-serif` }}><span>{system.typographySpecimen.family}</span><span>{system.typographySpecimen.sample}</span></div>
+          <div>{system.foundations.find(foundation => foundation.title === "Typography")?.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>
+        </div>}
+        {segment.title === "Iconography" && system.iconLibrary === "lucide-react" && <EcoGiroIcons />}
+        {segment.title === "Iconography" && system.iconographySvgs && <ul className="case-lucide-icons" aria-label={t("MiFarma iconography")}>
+          {system.iconographySvgs.map(src => <li key={src}><img src={src} alt="" width="28" height="28" loading="lazy" /></li>)}
+        </ul>}
+        {segment.title === "Components" && !system.componentImages && !system.componentGallery && <div className="case-design-color-copy"><p>{t(system.components.introduction)}</p><ul className="case-component-list">{system.components.items.map(item => <li key={item}>{t(item)}</li>)}</ul><p>{t(system.components.conclusion)}</p></div>}
+        {segment.title === "Components" && system.componentGallery && <>
+          <div className="case-design-color-copy"><p>{t(system.components.introduction)}</p><p>{t(system.components.conclusion)}</p></div>
+          <div className="case-component-gallery">{system.componentGallery.map(component => <figure key={component.title}>
+            <figcaption>{t(component.title)}</figcaption>
+            <img src={component.image.src} alt={t(component.image.alt)} width={component.image.width} height={component.image.height} loading="lazy" />
+          </figure>)}</div>
+        </>}
         {segment.title === "Typography" && system.typographyImage && <div className="case-typography-layout">
           <div className="case-typography-specimen"><img src={system.typographyImage.src} alt={t(system.typographyImage.alt)} width={system.typographyImage.width} height={system.typographyImage.height} loading="lazy" /></div>
           <div>{system.foundations.find(foundation => foundation.title === "Typography")?.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>

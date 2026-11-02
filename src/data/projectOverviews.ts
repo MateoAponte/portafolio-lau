@@ -1,10 +1,13 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 // Real overview content is added independently as each case study is supplied.
 export const projectBenefits: Record<string, {
   title: string;
   description: string;
   items: { title: string; description: string }[];
-  image: { src: string; alt: string; width: number; height: number };
+  image?: { src: string; alt: string; width: number; height: number; scrollable?: boolean };
 }> = {
+  ecogiro: ecogiro.benefit,
   "luma-care": {
     title: "Know before you go",
     description: "MiFarma gives users greater visibility before they visit a pharmacy, helping them check their options, choose how to receive their medication, and stay informed throughout the process.",
@@ -32,6 +35,7 @@ export const projectOverviews: Record<string, {
   // Render mockup assets directly, without adding a second CSS device frame.
   image: { src: string; alt: string; width: number; height: number };
 }> = {
+  ecogiro: ecogiro.overview,
   "luma-care": {
     name: "MiFarma",
     tagline: "Your health without lines or uncertainty.",

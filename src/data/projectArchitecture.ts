@@ -1,8 +1,11 @@
+import ecogiro from "./ecogiroCaseStudy.json";
+
 export const projectArchitecture: Record<string, {
   paragraphs: string[];
   items: { title: string; description: string }[];
-  image: { src: string; alt: string; width: number; height: number };
+  image?: { src: string; alt: string; width: number; height: number };
 }> = {
+  ecogiro: ecogiro.architecture,
   "luma-care": {
     paragraphs: [
       "Research showed that users needed quick access to a small set of critical actions rather than a complex pharmacy ecosystem.",
