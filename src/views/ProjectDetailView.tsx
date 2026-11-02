@@ -1,3 +1,5 @@
+import { ChevronLeft } from "lucide-react";
+import { ProjectTools } from "../components/ProjectTools";
 import { t } from "../i18n";
 import { DesignSystemSegments } from "../components/DesignSystemSegments";
 import { useRef } from "react";
@@ -41,10 +43,10 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
     <main className={`case-study theme-${project.theme}`} data-view="project-detail" data-project={isMifarma ? "mifarma" : source.slug} ref={scope}>
       {isMifarma && <StarParticles evenlySpaced />}
       <CompactNavigation detailSlug={project.slug} />
-      <nav className="case-nav" aria-label={t("Case study navigation")}><a href="#introduction">{t("← Back to home")}</a><span>{t(overview?.name ?? `${project.name} · ${project.year}`)}</span></nav>
+      <nav className="case-nav" aria-label={t("Case study navigation")}><a href="#introduction"><ChevronLeft size="1em" aria-hidden="true" />{t("Back to home")}</a><span>{t(overview?.name ?? `${project.name} · ${project.year}`)}</span></nav>
       <article>
         <header className="case-overview" data-section="project-overview">
-          <div><h1 tabIndex={-1}>{t(overview?.name ?? project.title)}</h1>{overview && <p><strong>{t(overview.tagline)}</strong></p>}<p>{t(overview?.summary ?? project.summary)}</p><ul className="case-tags" aria-label={t("Project disciplines")}>{(overview?.tags ?? project.tags).map(tag => <li key={tag}>{t(tag)}</li>)}</ul><dl className="case-facts">{metadata.map(item => <div key={item.label}><dt>{t(item.label)}</dt><dd>{t(item.value)}</dd></div>)}</dl></div>
+          <div><h1 tabIndex={-1}>{t(overview?.name ?? project.title)}</h1>{overview && <p><strong>{t(overview.tagline)}</strong></p>}<p>{t(overview?.summary ?? project.summary)}</p><ul className="case-tags" aria-label={t("Project disciplines")}>{(overview?.tags ?? project.tags).map(tag => <li key={tag}>{t(tag)}</li>)}</ul><dl className="case-facts">{metadata.map(item => <div key={item.label}><dt>{t(item.label)}</dt><dd>{item.label === "Tools" ? <ProjectTools value={item.value} /> : t(item.value)}</dd></div>)}</dl></div>
           {overview && source.slug === "ecogiro" ? <ProcessMockup image={overview.image} projectSlug={source.slug} loading="eager" /> : overview ? <div className="case-overview-phone"><img src={overview.image.src} alt={t(overview.image.alt)} width={overview.image.width} height={overview.image.height} /></div> : <ProjectPreview project={project} guide={visualGuides.overview} />}
         </header>
         <section className="case-split case-value" data-section="value-proposition" aria-labelledby="value-title">
@@ -55,7 +57,7 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
         <section data-section="problem-statement" aria-labelledby="problem-title">
           <h2 id="problem-title">{t(problem?.title ?? "Describe the problem")}</h2>
           {(problem?.paragraphs ?? [project.problem]).map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}
-          {problem && <h3>{t(problem.questionTitle)}</h3>}
+          
           <blockquote>{t(problem?.question ?? project.question)}</blockquote>
           {problem?.insights && <dl className={`case-research-insights${problem.insights.some(item => item.image) ? " case-research-insights--illustrated" : ""}`}>{problem.insights.map(item => <div key={item.title}><dt><strong>{t(item.title)}</strong></dt><dd><p>{t(item.description)}</p>{item.image && <img src={item.image.src} alt={t(item.image.alt)} width={item.image.width} height={item.image.height} loading="lazy" />}</dd></div>)}</dl>}
           {(!problem || problem.images.length > 0) && <div className="case-screen-grid">{problem ? problem.images.map(image => <figure key={image.src}><img className="case-problem-image" src={image.src} alt={t(image.alt)} width={image.width} height={image.height} loading="lazy" /></figure>) : researchCaptions.map((caption, i) => <figure key={caption}><ProjectPreview project={project} page={i} guide={visualGuides.research[i]} /><figcaption>{t(caption)}</figcaption></figure>)}</div>}
@@ -79,7 +81,7 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
         </section>
         <footer className="case-closing" data-section="project-closing">
           {outcome ? <div className="case-outcome-content"><h2>{t(outcome.title)}</h2><h3>{t(outcome.subtitle)}</h3>{outcome.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}<h3 className="case-outcome-heading">{t("What I learned")}</h3><dl className="case-outcome-learnings">{outcome.learnings.map(learning => <div key={learning.title}><dt><strong>{t(learning.title)}</strong></dt><dd><p>{t(learning.description)}</p></dd></div>)}</dl>{outcome.metrics && <div className="case-validation"><h3>{t("Planned validation")}</h3><dl className="case-facts">{outcome.metrics.map(metric => <div key={metric.title}><dt><strong>{t(metric.title)}</strong></dt><dd>{t(metric.description)}</dd></div>)}</dl></div>}<div className="case-outcome-takeaway"><h3>{t("Key takeaway")}</h3><p><strong>{t(outcome.takeaway)}</strong></p></div></div> : <><h2>{t(project.closing.title)}</h2><p>{t(project.closing.description)}</p><h3>{t("Tools")}</h3><ul className="case-tags">{project.closing.tools.map(tool => <li key={tool}>{t(tool)}</li>)}</ul><p className="case-credit">{t(project.closing.credits)}</p></>}
-          <div className="case-end-links"><a href="#projects">{t("← All projects")}</a><a href={`#/projects/${next.slug}`}>{t("Next project")}{t(" ")}<ProjectArrow /></a></div>
+          <div className="case-end-links"><a href="#projects"><ChevronLeft size="1em" aria-hidden="true" />{t("All projects")}</a><a href={`#/projects/${next.slug}`}>{t("Next project")}{t(" ")}<ProjectArrow /></a></div>
         </footer>
       </article>
     </main>

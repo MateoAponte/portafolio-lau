@@ -1,3 +1,5 @@
+import { ChevronRight } from "lucide-react";
+
 export function ProjectArrow() {
-  return <span aria-hidden="true">→</span>;
+  return <ChevronRight className="project-chevron" size="1em" aria-hidden="true" />;
 }

@@ -1,3 +1,4 @@
+import { ChevronLeft } from "lucide-react";
 import { t } from "./i18n";
 import { useLocale } from "./i18n";
 import { LanguageToggle } from "./components/LanguageToggle";
@@ -51,6 +52,6 @@ export function App() {
     }
   }, [hash, isDetail, project, section, route]);
 
-  if (isDetail && !project) return <main className="case-study" data-view="project-detail"><a href="#introduction">{t("← Back to home")}</a><h1 tabIndex={-1}>{t("Project not found")}</h1><p>{t("This case study is not available. Explore the demo projects instead.")}</p></main>;
+  if (isDetail && !project) return <main className="case-study" data-view="project-detail"><a href="#introduction"><ChevronLeft size="1em" aria-hidden="true" />{t("Back to home")}</a><h1 tabIndex={-1}>{t("Project not found")}</h1><p>{t("This case study is not available. Explore the demo projects instead.")}</p></main>;
   return <>{project ? <ProjectDetailView key={project.slug} project={project} /> : <LandingView />}<BackToTop /><LanguageToggle /></>;
 }

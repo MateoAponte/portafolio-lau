@@ -255,7 +255,7 @@ p { text-wrap: pretty; }
 .project-card-link { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 2rem; color: inherit; text-decoration: none; border-radius: 16px; }
 .project-card-copy { padding-block: 1rem; }
 .project-card h3 { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-size: 1.75rem; margin-bottom: .75rem; }
-.project-card h3 span { font-family: var(--font-body); font-size: 1.25rem; color: var(--color-accent); }
+.project-card h3 .project-chevron { font-family: var(--font-body); font-size: 1.25rem; color: var(--color-accent); }
 .project-card p { font-size: 1rem; line-height: 1.7; color: var(--color-text-secondary); }
 .project-meta { display: block; font-size: .8125rem; color: var(--color-text-secondary); margin-top: 1rem; }
 .project-read { display: inline-block; font-weight: 600; font-size: .875rem; color: var(--color-accent); margin-top: 1.25rem; text-underline-offset: .25em; }
@@ -423,6 +423,15 @@ p { text-wrap: pretty; }
 .case-closing .case-tags li { background: #fffdfb; }
 .case-study .case-credit { font-size: .875rem; margin-top: 2rem; }
 .case-end-links { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; }
+.project-chevron { display: inline-block; vertical-align: -.15em; flex-shrink: 0; }
+.project-tool-tags { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: .625rem 0 0; list-style: none; }
+.project-tool-tags li { display: flex; align-items: center; gap: .5rem; padding: .5rem .75rem; font-size: .8125rem; border: 1px solid var(--case-tools-active, var(--project-accent)); border-radius: 999px; color: var(--color-text-primary); transition: color var(--duration-quick) var(--ease-out); }
+.project-tool-tags :is(svg, .project-tool-mask) { display: block; width: 1.125rem; height: 1.125rem; flex-shrink: 0; }
+.project-tool-mask { background: currentColor; mask-repeat: no-repeat; mask-size: contain; mask-position: center; }
+.case-study[data-project="mifarma"] .project-tool-tags { --case-tools-active: #477282; }
+.case-study[data-project="ecogiro"] .project-tool-tags { --case-tools-active: #1e8f5b; }
+@media (hover: hover) and (pointer: fine) { .project-tool-tags li:hover { color: var(--case-tools-active, var(--project-accent)); } }
+@media (prefers-reduced-motion: reduce) { .project-tool-tags li { transition: none; } }
 @media (max-width: 800px) {
   .case-overview, .case-split, .case-wireframes { grid-template-columns: 1fr; gap: 2rem; }
   .case-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -458,7 +467,7 @@ html { scroll-padding-top: 6rem; scroll-behavior: smooth; }
 .compact-nav { position: fixed; inset: 0 0 auto; z-index: 30; background: #f7f6f4f5; border-bottom: 1px solid #e7dce1; visibility: hidden; opacity: 0; translate: 0 -8px; transition: opacity var(--duration-quick) ease-out, translate var(--duration-fast) var(--ease-smooth-out), visibility var(--duration-quick); }
 .compact-nav.is-visible { visibility: visible; opacity: 1; translate: none; }
 .compact-nav-inner { max-width: var(--layout-max-width); padding: .5rem var(--layout-gutter); margin: auto; display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
-.compact-brand { font-weight: 700; color: var(--color-accent); white-space: nowrap; }
+.compact-brand { gap: .375rem; font-weight: 700; color: var(--color-accent); white-space: nowrap; }
 .compact-links { display: flex; gap: .5rem; overflow-x: auto; min-width: 0; }
 .compact-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: .5rem; font-size: 1rem; text-decoration: none; flex: none; }
 .compact-links a { gap: .5rem; color: var(--color-text-secondary); border-radius: 4px; font-weight: 400; transition: color var(--duration-quick) ease-out; }
@@ -815,12 +824,12 @@ body:has(.case-study[data-project="mifarma"]) .language-toggle { --color-accent:
 .case-study[data-view="project-detail"] .case-design-palette { grid-template-columns: repeat(auto-fit, minmax(min(100%, 90px), 1fr)); }
 .case-study[data-view="project-detail"] :is(.case-design-color-hex, .case-design-color-usage) { font-size: .875rem; }
 .case-study[data-view="project-detail"] .case-design-color-hex { font-variant-numeric: tabular-nums; }
-.case-study[data-view="project-detail"] .case-end-links a:last-child > span { display: inline-block; transition: translate var(--duration-quick) var(--ease-smooth-out); }
+.case-study[data-view="project-detail"] .case-end-links a:last-child > .project-chevron { display: inline-block; transition: translate var(--duration-quick) var(--ease-smooth-out); }
 @media (hover: hover) and (pointer: fine) {
-  .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a):hover { background: var(--case-hover); color: var(--case-link); text-decoration: underline; }
+  .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a):hover { background: var(--case-hover); color: var(--case-link); text-decoration: none; }
   .case-study[data-view="project-detail"] .compact-nav a:hover { color: var(--case-link); }
   .case-study[data-view="project-detail"] .process-indicators button:hover { background: var(--case-hover); color: var(--case-link); border-color: var(--project-accent); }
-  .case-study[data-view="project-detail"] .case-end-links a:last-child:hover > span { translate: 3px 0; }
+  .case-study[data-view="project-detail"] .case-end-links a:last-child:hover > .project-chevron { translate: 3px 0; }
 }
 .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a):active { background: var(--case-pressed); color: var(--case-link); }
 .case-study[data-view="project-detail"] .compact-nav a:active { color: var(--case-link); }
@@ -838,8 +847,8 @@ body:has(.case-study[data-view="project-detail"]) .language-toggle button:active
 }
 .case-study[data-view="project-detail"] ~ .back-to-top:active { background: color-mix(in srgb, var(--project-accent) 72%, #000); color: #fff; }
 @media (prefers-reduced-motion: reduce) {
-  .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-nav a, .process-indicators button, .case-end-links a > span),
+  .case-study[data-view="project-detail"] :is(.case-nav a, .case-end-links a, .compact-nav a, .process-indicators button, .case-end-links a > .project-chevron),
   body:has(.case-study[data-view="project-detail"]) .language-toggle button { transition: none; }
   .case-study[data-view="project-detail"] .process-indicators button:active { scale: 1; }
-  .case-study[data-view="project-detail"] .case-end-links a:last-child:hover > span { translate: none; }
+  .case-study[data-view="project-detail"] .case-end-links a:last-child:hover > .project-chevron { translate: none; }
 }
