@@ -22,7 +22,7 @@ body { margin: 0; min-width: 320px; overflow-x: clip; }
 .back-to-top {
   position: fixed;
   right: max(var(--layout-gutter), env(safe-area-inset-right));
-  bottom: max(var(--layout-gutter), env(safe-area-inset-bottom));
+  bottom: max(3.5rem, env(safe-area-inset-bottom));
   z-index: 40;
   display: grid;
   place-items: center;
