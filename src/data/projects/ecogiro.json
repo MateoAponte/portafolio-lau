@@ -3,12 +3,12 @@
   "name": "EcoGiro",
   "category": "Inclusive recycling · Mobile UX · UX/UI Design",
   "title": "EcoGiro",
-  "summary": "An inclusive recycling experience that helps people identify plastic, prepare it correctly, and arrange collection with recyclers through a mobile app and Telegram.",
+  "summary": "I turned recycling research into a collection MVP, connecting preparation guidance, citizen requests, and recycler responses.",
   "audience": "Citizens in Bogotá, recyclers, and collection centers.",
-  "problem": "The research described a fragmented journey: citizens are unsure how to prepare recyclable material, recyclers encounter mixed or unsafe waste without advance information, and collection centers need better visibility of incoming material.",
+  "problem": "Citizens need guidance on preparing plastic. Recyclers receive mixed material and discover its condition at pickup. I focused the design on that gap: the information missing between preparation at home and collection.",
   "question": "How might we make preparing and handing over plastic simple for citizens, while giving recyclers the information and autonomy to collect it safely?",
   "value": "Recycle with confidence",
-  "description": "The experience turns uncertainty about plastic into a clear next step: identify it, prepare it, and request a convenient handoff. It connects citizen convenience with the information recyclers need and the material traceability collection centers seek.",
+  "description": "I designed the journey around a practical question: what does each person need to know before handing over plastic? Preparation guidance sits after the scan. Material details travel with the collection request so recyclers can review it before responding.",
   "pages": [
     "Home",
     "Collections",
@@ -36,23 +36,23 @@
   "process": [
     {
       "title": "Discovery",
-      "description": "I structured the research questions and recycler interview guide, then synthesized the team’s field interview and secondary research. The strongest direction came from connecting everyday preparation mistakes with the effort and risks faced by recyclers."
+      "description": "I structured the research questions and recycler interview guide, then synthesized the team’s interview and secondary research. Contamination and missing information became design priorities: preparation guidance after scanning and material details before pickup acceptance."
     },
     {
       "title": "UX / Structure",
-      "description": "I mapped the citizen, recycler, and collection-center journeys and defined the MVP sitemap. The citizen flow moves from a photo to a request; Telegram gives the recycler information and a choice without requiring a dedicated EcoGiro app."
+      "description": "I mapped the citizen, recycler, and collection-center journeys and defined the MVP sitemap. I separated sending a request from confirming collection and used Telegram as the proposed recycler channel. This gave the team a flow with explicit roles and response states."
     },
     {
       "title": "UI Design",
-      "description": "I translated the findings into contextual education and low-friction flows: short preparation instructions, one dominant scan action, visible request status, and eco-points after delivery. The UI direction uses familiar patterns to support the core journey across the two-month project."
+      "description": "I translated the research into preparation guidance, a prominent scan action, and visible collection states. I documented recurring UI patterns so the same information and actions could stay consistent across screens."
     },
     {
       "title": "Validation plan",
-      "description": "The MVP connects the core journey from identification to handoff. The next validation stage is a pilot to test whether citizens trust the classification, recyclers can respond through Telegram, the collection window is realistic, and enough material can be collected to make each trip worthwhile."
+      "description": "I defined a pilot around the assumptions that could block the service: understanding the scan result, responding through Telegram, and completing a viable pickup. The plan tracks request completion, response time, material quality, and cost per kilogram."
     }
   ],
   "architecture": {
-    "description": "I organized the citizen experience around four destinations: Home, Collections, Rewards, and Profile. Scanning starts from Home; classification and preparation lead into a collection request without becoming separate navigation sections.\n\nThe citizen selects an address and a proposed time within the next 24 hours. The recycler receives the request in Telegram and can accept, reject, or propose another time within that same window. A request remains pending until a recycler responds.\n\nThe wider service connects citizen → EcoGiro → recycler → collection center. Weight and material validation at the center support the operational roadmap; centralized payments belong to a later phase.",
+    "description": "I organized the citizen app into Home, Collections, Rewards, and Profile. Scanning starts from Home and leads through preparation to a collection request. This keeps the main task in one flow and makes active requests easy to find.\n\nI separated requesting a pickup from confirming one. Citizens propose an address and time; recyclers can accept, decline, or suggest another time through Telegram. The pending state makes clear that sending a request does not guarantee collection.\n\nThe service map connects citizens, EcoGiro, recyclers, and collection centers. I kept center-side material validation and centralized payments in the roadmap so the MVP could focus on preparation and coordination.",
     "nodes": [
       "Scan plastic",
       "Identify & prepare",
@@ -63,7 +63,7 @@
     ]
   },
   "wireframes": {
-    "description": "The documented structure prioritizes a single main action on Home: scan plastic. The material result then explains what to do before asking for quantity, address, and a collection time.\n\nScheduling keeps the material summary visible and separates sending a request from receiving confirmation. Empty, waiting, accepted, alternative-time, rejected, and collected states make the service status explicit.\n\nThese are the structural priorities recorded in the project documents. Original wireframe images and comparisons between versions were not included in the supplied material.",
+    "description": "I gave scanning priority on Home and placed preparation guidance before scheduling. That sequence gives citizens the material information they need before committing to a collection request.\n\nThe wireframes keep the material summary visible while users enter collection details. I defined empty, pending, accepted, alternative-time, rejected, and collected states to cover the handoff beyond the ideal path.",
     "captions": [
       "One clear starting point",
       "Guidance before scheduling",
@@ -71,7 +71,7 @@
     ]
   },
   "screens": {
-    "description": "The EcoGiro MVP focused on one material stream and one understandable loop: photo → classification → preparation → request → recycler response → collection → traceability and points. The supplied mockups show Home, collection history, and reward progress.",
+    "description": "The MVP follows plastic from identification and preparation through the collection request and recycler response. I designed the supporting screens for profile details, contextual help, collection history, and reward progress around that journey.",
     "captions": [
       "Identify & prepare",
       "Request & coordinate",
@@ -79,8 +79,8 @@
     ]
   },
   "designSystem": {
-    "description": "The visual direction supports short instructions, a visible primary action, and recognizable collection states. EcoGiro combines Poppins typography, Lucide React icons, the project palette, and an 8-point spacing scale.",
-    "typography": "Poppins is the typeface used for EcoGiro. Its rounded forms give the experience an approachable tone, while weight and size distinguish headings, preparation instructions, actions, and supporting information.\n\nA clear hierarchy helps people scan material details and understand the next step without relying only on color or icons.",
+    "description": "I brought the collection journey into a shared UI system with Poppins, Lucide React icons, and an 8-point spacing scale. The component specifications document dimensions and states for recurring actions such as scheduling, reviewing a request, and checking status.",
+    "typography": "I used Poppins with distinct weights and sizes for screen titles, material instructions, actions, and supporting details. The hierarchy gives preparation steps priority over secondary information.\n\nA clear hierarchy helps people scan material details and understand the next step without relying only on color or icons.",
     "principles": [
       "Contextual preparation guidance",
       "Visible status with text and icons",
@@ -98,7 +98,7 @@
   },
   "closing": {
     "title": "Outcome & Reflection",
-    "description": "Over two months, the project brought research, experience structure, and interface design together into an MVP. My contribution connected research, the problem definition, user flows, the sitemap, contextual education, and the product narrative within a five-person team.\n\nThe business concept evolved toward collection centers as the priority B2B customer: an operated coordination and traceability service, with a proposed commission on material managed. Centralized payments are part of the future operating model. Pricing, center demand, and pickup economics remain hypotheses.\n\nThe supplied documents do not report product usability-test results, pilot performance, measured AI accuracy, or verified environmental gains. The next step is a small-area pilot with a collection center and a limited recycler group.",
+    "description": "Across the two-month project, I connected research synthesis with user flows, the sitemap, and contextual education for the MVP. My contribution gave the team a design rationale for what information to show before a request and how to represent the recycler’s response.\n\nThe business proposal focused on collection centers as a potential B2B customer for coordination and traceability. I considered how pickup quantities, route density, and material quality would affect the experience. Pricing and operating costs still need validation.\n\nThe project reached an MVP and a pilot plan. The next step is to test it in a small area with a collection center and a limited recycler group. Usability, classification accuracy, and environmental impact have not yet been measured.",
     "credits": "Five-person team · Two-month project. My contribution: UX research, insight synthesis, user flows, information architecture, contextual education, and product narrative.",
     "tools": [
       "Secondary research",
@@ -113,5 +113,5 @@
     "height": 1024
   },
   "prototype": null,
-  "tagline": "Your recycling, their opportunity, our future."
+  "tagline": "Designing the connection between citizens and recyclers."
 }

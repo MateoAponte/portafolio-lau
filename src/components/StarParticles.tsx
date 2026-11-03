@@ -32,15 +32,16 @@ const particles = [
   { x: 95, y: 96, size: 24 },
 ];
 
-export function StarParticles({ evenlySpaced = false }: { evenlySpaced?: boolean }) {
+export function StarParticles({ evenlySpaced = false, count = particles.length }: { evenlySpaced?: boolean; count?: number }) {
+  const visibleParticles = Array.from({ length: count }, (_, index) => particles[index % particles.length]);
   return (
     <div className="star-particles" aria-hidden="true">
-      {particles.map(({ x, y, size }, index) => (
+      {visibleParticles.map(({ x, y, size }, index) => (
         <svg
           key={index}
           className="background-star"
           viewBox="0 0 40 40"
-          style={{ left: `${x}%`, top: `${evenlySpaced ? (index + .5) / particles.length * 100 : y}%`, width: size, height: size }}
+          style={{ left: `${x}%`, top: `${evenlySpaced ? (index + .5) / visibleParticles.length * 100 : y}%`, width: size, height: size }}
         >
           <path d="M20 0C22 13 27 18 40 20C27 22 22 27 20 40C18 27 13 22 0 20C13 18 18 13 20 0Z" fill="currentColor" />
         </svg>

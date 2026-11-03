@@ -1,5 +1,6 @@
 import { ChevronLeft } from "lucide-react";
 import { ProjectTools } from "../components/ProjectTools";
+import { ArchitectureImage } from "../components/ArchitectureImage";
 import { t } from "../i18n";
 import { DesignSystemSegments } from "../components/DesignSystemSegments";
 import { useRef } from "react";
@@ -23,7 +24,8 @@ import { projectOutcomes } from "../data/projectOutcomes";
 export function ProjectDetailView({ project: source }: { project: Project }) {
   const scope = useRef<HTMLElement>(null);
   const isMifarma = source.slug === "luma-care";
-  useStarSpin(scope, isMifarma);
+  const hasParticles = isMifarma || source.slug === "ecogiro";
+  useStarSpin(scope, hasParticles);
   const project = caseStudyGuide(source);
   const overview = projectOverviews[source.slug];
   const benefit = projectBenefits[source.slug];
@@ -41,7 +43,7 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
   const next = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
   return (
     <main className={`case-study theme-${project.theme}`} data-view="project-detail" data-project={isMifarma ? "mifarma" : source.slug} ref={scope}>
-      {isMifarma && <StarParticles evenlySpaced />}
+      {hasParticles && <StarParticles evenlySpaced count={source.slug === "ecogiro" ? 90 : 60} />}
       <CompactNavigation detailSlug={project.slug} />
       <nav className="case-nav" aria-label={t("Case study navigation")}><a href="#introduction"><ChevronLeft size="1em" aria-hidden="true" />{t("Back to home")}</a><span>{t(overview?.name ?? `${project.name} · ${project.year}`)}</span></nav>
       <article>
@@ -64,7 +66,7 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
         </section>
         <section className={`case-split${architecture ? " case-architecture-layout" : ""}`} data-section="information-architecture" aria-labelledby="architecture-title">
           <div><h2 id="architecture-title">{t("Information Architecture")}</h2>{(architecture?.paragraphs ?? [project.architecture.description]).map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>
-          {architecture?.image ? <div className="case-architecture-diagram"><img src={architecture.image.src} alt={t(architecture.image.alt)} width={architecture.image.width} height={architecture.image.height} loading="lazy" /></div> : <div className="case-architecture"><strong>{t(architecture ? "Main journey" : "Add your sitemap or architecture diagram")}</strong><ol>{project.architecture.nodes.map(node => <li key={node}>{t(node)}</li>)}</ol></div>}
+          {architecture?.image ? <ArchitectureImage image={architecture.image} /> : <div className="case-architecture"><strong>{t(architecture ? "Main journey" : "Add your sitemap or architecture diagram")}</strong><ol>{project.architecture.nodes.map(node => <li key={node}>{t(node)}</li>)}</ol></div>}
           {architecture && <div className="case-architecture-core"><h3>{t("Core structure")}</h3><dl className="case-facts">{architecture.items.map(item => <div key={item.title}><dt><strong>{t(item.title)}</strong></dt><dd>{t(item.description)}</dd></div>)}</dl></div>}
         </section>
         <section className={`case-split case-wireframes${wireframes ? " case-wireframes--screens" : ""}`} data-section="wireframes" aria-labelledby="wireframes-title">
@@ -73,7 +75,7 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
         </section>
         <section data-section="final-screens" aria-labelledby="screens-title">
           <h2 id="screens-title">{t(solution ? "Final Solution" : "Final Solution / UI")}</h2>
-          {solution ? <div className="case-final-content"><h3>{t(solution.subtitle)}</h3>{solution.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}<div className="case-screen-grid">{solution.features.map(feature => <div key={feature.title}><h3>{t(feature.title)}</h3><p><strong>{t(feature.benefit)}</strong></p>{feature.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>)}</div>{solution.images.length > 0 && <div className="case-screen-grid case-final-gallery">{solution.images.map(image => <figure key={image.src}><ProcessMockup image={image} projectSlug={source.slug} /></figure>)}</div>}</div> : <><p>{t(project.screens.description)}</p><div className="case-screen-grid">{project.screens.captions.map((caption, i) => <figure key={caption}><ProjectPreview project={project} page={i} guide={visualGuides.solution[i]} /><figcaption>{t(caption)}</figcaption></figure>)}</div></>}
+          {solution ? <div className="case-final-content"><h3>{t(solution.subtitle)}</h3>{solution.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}<div className="case-screen-grid">{solution.features.map(feature => <div key={feature.title}><h3>{t(feature.title)}</h3><p><strong>{t(feature.benefit)}</strong></p>{feature.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</div>)}</div>{solution.images.length > 0 && <div className="case-screen-grid case-final-gallery">{solution.images.map(image => <figure key={image.src}><ProcessMockup image={image} projectSlug={source.slug} /><figcaption className="process-caption">{t(image.caption)}</figcaption></figure>)}</div>}</div> : <><p>{t(project.screens.description)}</p><div className="case-screen-grid">{project.screens.captions.map((caption, i) => <figure key={caption}><ProjectPreview project={project} page={i} guide={visualGuides.solution[i]} /><figcaption>{t(caption)}</figcaption></figure>)}</div></>}
         </section>
         <section data-section="design-system" aria-labelledby="system-title">
           <h2 id="system-title">{t("Design System")}</h2>

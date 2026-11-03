@@ -1,8 +1,8 @@
 {
   "overview": {
     "name": "EcoGiro",
-    "tagline": "Your recycling, their opportunity, our future.",
-    "summary": "EcoGiro is a two-month UX/UI product design project developed by a five-person team. The mobile-first experience connects plastic identification and preparation with collection requests, recycler responses through Telegram, and eco-points after a completed handoff.",
+    "tagline": "Designing the connection between citizens and recyclers.",
+    "summary": "In two months, I turned research on recycling in Bogotá into user flows and interface designs for a collection MVP. My work connected material preparation with the information recyclers need before accepting a pickup.",
     "tags": [
       "UX/UI Design",
       "UX Research",
@@ -36,19 +36,19 @@
   },
   "benefit": {
     "title": "Recycle with confidence",
-    "description": "The experience turns uncertainty about plastic into a clear next step: identify it, prepare it, and request a convenient handoff. It connects citizen convenience with the information recyclers need and the material traceability collection centers seek.",
+    "description": "I designed the journey around a practical question: what does each person need to know before handing over plastic? Preparation guidance sits after the scan. Material details travel with the collection request so recyclers can review it before responding.",
     "items": [
       {
         "title": "Citizens",
-        "description": "Understand what to do with each material and choose where and when to request collection."
+        "description": "Material-specific instructions turn a scan result into preparation steps and a collection request."
       },
       {
         "title": "Recyclers",
-        "description": "Know the material, estimated quantity, condition, address, and proposed time before deciding whether to collect."
+        "description": "Material condition, estimated quantity, address, and proposed time support the decision to accept a pickup."
       },
       {
         "title": "Collection centers",
-        "description": "Connect incoming material with a traceable record and a future service for operational coordination."
+        "description": "A proposed coordination service would connect collection records with material received at the center."
       }
     ],
     "image": {
@@ -60,10 +60,10 @@
     }
   },
   "problem": {
-    "title": "Good intentions need a connection",
+    "title": "Preparation mistakes reach the recycler",
     "paragraphs": [
-      "The research described a fragmented journey: citizens are unsure how to prepare recyclable material, recyclers encounter mixed or unsafe waste without advance information, and collection centers need better visibility of incoming material.",
-      "I synthesized secondary research from ReciRed Bogotá (Universidad EAN, 2025) and a semi-structured field interview with Cecilia Gamboa, a recycler with ten years of experience. Her account of sorting bags by hand and encountering food, sanitary waste, and poorly packed glass made preparation and safety central to the design."
+      "Citizens need guidance on preparing plastic. Recyclers receive mixed material and discover its condition at pickup. I focused the design on that gap: the information missing between preparation at home and collection.",
+      "I synthesized the team’s field interview with Cecilia Gamboa, a recycler with ten years of experience, alongside secondary research from ReciRed Bogotá (Universidad EAN, 2025). Her account of sorting bags by hand exposed contamination and poorly packed glass. I translated those findings into preparation guidance and material information shown before a recycler accepts."
     ],
     "questionTitle": "How might we...",
     "question": "How might we make preparing and handing over plastic simple for citizens, while giving recyclers the information and autonomy to collect it safely?",
@@ -71,28 +71,28 @@
       {
         "src": "/images/projects/ecogiro-insight-guidance-card.png",
         "alt": "Teach at the point of action. Knowing the recycling rules does not ensure correct separation. Give material-specific instructions immediately after the scan.",
-        "width": 1448,
-        "height": 1086
+        "width": 1229,
+        "height": 987
       },
       {
         "src": "/images/projects/ecogiro-insight-pickup-card.png",
         "alt": "Make the handoff predictable. The interview highlighted contamination and missing information. Show material condition and risk notes before a recycler accepts.",
-        "width": 1447,
-        "height": 1087
+        "width": 1355,
+        "height": 1008
       },
       {
         "src": "/images/projects/ecogiro-insight-accessibility-card.png",
         "alt": "Reduce the learning burden. Cecilia mainly used her phone for emergencies. A lightweight messaging flow was chosen as a hypothesis to test with recyclers.",
-        "width": 1447,
-        "height": 1087
+        "width": 1191,
+        "height": 984
       }
     ]
   },
   "architecture": {
     "paragraphs": [
-      "I organized the citizen experience around four destinations: Home, Collections, Rewards, and Profile. Scanning starts from Home; classification and preparation lead into a collection request without becoming separate navigation sections.",
-      "The citizen selects an address and a proposed time within the next 24 hours. The recycler receives the request in Telegram and can accept, reject, or propose another time within that same window. A request remains pending until a recycler responds.",
-      "The wider service connects citizen → EcoGiro → recycler → collection center. Weight and material validation at the center support the operational roadmap; centralized payments belong to a later phase."
+      "I organized the citizen app into Home, Collections, Rewards, and Profile. Scanning starts from Home and leads through preparation to a collection request. This keeps the main task in one flow and makes active requests easy to find.",
+      "I separated requesting a pickup from confirming one. Citizens propose an address and time; recyclers can accept, decline, or suggest another time through Telegram. The pending state makes clear that sending a request does not guarantee collection.",
+      "The service map connects citizens, EcoGiro, recyclers, and collection centers. I kept center-side material validation and centralized payments in the roadmap so the MVP could focus on preparation and coordination."
     ],
     "items": [
       {
@@ -115,14 +115,14 @@
     "image": {
       "src": "/images/projects/ecogiro-information-architecture.png",
       "alt": "EcoGiro information architecture divided into User and Agent. User includes medals, scanning and scheduled collection, recoveries and recovery detail, rewards, and profile with FAQ and data policy. Agent includes profile, accepted collections with recovery detail and collection scanning, and collections.",
-      "width": 1744,
-      "height": 902
+      "width": 2305,
+      "height": 1264
     }
   },
   "wireframes": {
     "paragraphs": [
-      "The documented structure prioritizes a single main action on Home: scan plastic. The material result then explains what to do before asking for quantity, address, and a collection time.",
-      "Scheduling keeps the material summary visible and separates sending a request from receiving confirmation. Empty, waiting, accepted, alternative-time, rejected, and collected states make the service status explicit."
+      "I gave scanning priority on Home and placed preparation guidance before scheduling. That sequence gives citizens the material information they need before committing to a collection request.",
+      "The wireframes keep the material summary visible while users enter collection details. I defined empty, pending, accepted, alternative-time, rejected, and collected states to cover the handoff beyond the ideal path."
     ],
     "items": [
       {
@@ -165,28 +165,28 @@
   "solution": {
     "subtitle": "From a photo to a handoff",
     "paragraphs": [
-      "The EcoGiro MVP focused on one material stream and one understandable loop: photo → classification → preparation → request → recycler response → collection → traceability and points. The final screens show profile management, contextual help, Home, collection scheduling, and collection history."
+      "The MVP follows plastic from identification and preparation through the collection request and recycler response. I designed the supporting screens for profile details, contextual help, collection history, and reward progress around that journey."
     ],
     "features": [
       {
         "title": "Identify & prepare",
         "benefit": "Practical guidance for each material",
         "paragraphs": [
-          "AI-assisted classification considers categories such as PET, PP, PS, and ecoladrillo. The result explains the next preparation steps. Uncertain or incompatible results need a clear fallback rather than an unsupported identification."
+          "I paired AI-assisted material identification with preparation instructions and visible uncertainty. When the image cannot confirm the resin, the result says so. This makes the limits of classification part of the experience."
         ]
       },
       {
         "title": "Request & coordinate",
         "benefit": "People keep control of the handoff",
         "paragraphs": [
-          "Citizens choose their address and preferred time. Telegram gives recyclers material details and explicit response options. The 24-hour window is a product rule whose operational feasibility still needs a pilot."
+          "The request carries the material summary, address, and proposed time. Recyclers receive the details through Telegram and choose how to respond. Channel adoption and the proposed 24-hour coordination window are priorities for the pilot."
         ]
       },
       {
         "title": "Track & reward",
         "benefit": "Recognize a completed delivery",
         "paragraphs": [
-          "Collection history and status keep the handoff visible. Eco-points are tied to completed, correctly prepared deliveries. Medals, challenges, and partner rewards are proposed incentives; commercial partnerships and environmental conversion formulas remain to be validated."
+          "I used collection status and history to show what happens after a request is sent. The reward concept links eco-points to completed deliveries. Partner offers and environmental impact conversions remain proposals to validate."
         ]
       }
     ],
@@ -203,17 +203,17 @@
         "src": "/images/projects/ecogiro-edit-profile.jpeg",
         "alt": "EcoGiro edit profile dialog with name, email, phone, address, save changes, and cancel controls.",
         "width": 716,
-        "height": 1600,
+        "height": 1650,
         "caption": "Edit profile",
         "scrollable": false
       },
       {
-        "src": "/images/projects/ecogiro-faq.jpeg",
+        "src": "/images/projects/ecogiro-faq-full.png",
         "alt": "EcoGiro frequently asked questions about recycling, material preparation, collection, and eco-points.",
-        "width": 716,
-        "height": 1600,
+        "width": 275,
+        "height": 966,
         "caption": "Frequently asked questions",
-        "scrollable": false
+        "scrollable": true
       },
       {
         "src": "/images/projects/ecogiro-main.jpeg",
@@ -238,13 +238,29 @@
         "height": 1600,
         "caption": "Collection history",
         "scrollable": false
+      },
+      {
+        "src": "/images/projects/ecogiro-recovery-detail-full.png",
+        "width": 275,
+        "height": 818,
+        "scrollable": true,
+        "alt": "EcoGiro collection detail with collected status, summary, recycler rating, and donation options.",
+        "caption": "Collection detail"
+      },
+      {
+        "src": "/images/projects/ecogiro-rewards-full.png",
+        "width": 275,
+        "height": 1248,
+        "scrollable": true,
+        "alt": "EcoGiro rewards, medals, eco-points, and environmental impact.",
+        "caption": "Rewards"
       }
     ]
   },
   "system": {
     "subtitle": "A clear system for everyday actions",
     "paragraphs": [
-      "The visual direction supports short instructions, a visible primary action, and recognizable collection states. EcoGiro combines Poppins typography, Lucide React icons, the project palette, and an 8-point spacing scale."
+      "I brought the collection journey into a shared UI system with Poppins, Lucide React icons, and an 8-point spacing scale. The component specifications document dimensions and states for recurring actions such as scheduling, reviewing a request, and checking status."
     ],
     "paletteLabel": "EcoGiro color palette",
     "palette": [
@@ -293,7 +309,7 @@
         "title": "Typography",
         "benefit": "Hierarchy before decoration",
         "paragraphs": [
-          "Poppins is the typeface used for EcoGiro. Its rounded forms give the experience an approachable tone, while weight and size distinguish headings, preparation instructions, actions, and supporting information.",
+          "I used Poppins with distinct weights and sizes for screen titles, material instructions, actions, and supporting details. The hierarchy gives preparation steps priority over secondary information.",
           "A clear hierarchy helps people scan material details and understand the next step without relying only on color or icons."
         ]
       },
@@ -308,7 +324,7 @@
         "title": "Buttons",
         "benefit": "Visible actions and feedback",
         "paragraphs": [
-          "The specification calls for full-width primary actions, visible focus, pressed and disabled states, and touch targets of at least 44 px. Inline validation explains how to recover from an error. Contrast and accessibility remain requirements to verify, rather than audited outcomes."
+          "Primary actions use full-width buttons. The specifications define focus, pressed, and disabled states, plus inline validation for errors. Accessibility checks remain part of the validation plan."
         ]
       }
     ],
@@ -333,7 +349,7 @@
     "components": {
       "title": "Components",
       "benefit": "Patterns across the collection journey",
-      "introduction": "These components support EcoGiro’s collection, rewards, notifications, and location flows. The supplied specifications show their content, states, and dimensions.",
+      "introduction": "The component specifications give the team a shared reference for collection, rewards, notifications, and location flows. Each example records dimensions and content states.",
       "items": [
         "Recovery",
         "Rewards",
@@ -347,7 +363,7 @@
         "Recovery detail",
         "Status"
       ],
-      "conclusion": "Reusable patterns keep information and actions recognizable across the experience, from choosing an address and time to reviewing a completed collection."
+      "conclusion": "These patterns connect the same material, address, and status information across scheduling, collection cards, and detail views."
     },
     "typographySpecimen": {
       "family": "Poppins",
@@ -475,24 +491,24 @@
   },
   "outcome": {
     "title": "Outcome & Reflection",
-    "subtitle": "Connect the service before scaling it",
+    "subtitle": "Research translated into an MVP and a pilot plan",
     "paragraphs": [
-      "Over two months, the project brought research, experience structure, and interface design together into an MVP. My contribution connected research, the problem definition, user flows, the sitemap, contextual education, and the product narrative within a five-person team.",
-      "The business concept evolved toward collection centers as the priority B2B customer: an operated coordination and traceability service, with a proposed commission on material managed. Centralized payments are part of the future operating model. Pricing, center demand, and pickup economics remain hypotheses.",
-      "The supplied documents do not report product usability-test results, pilot performance, measured AI accuracy, or verified environmental gains. The next step is a small-area pilot with a collection center and a limited recycler group."
+      "Across the two-month project, I connected research synthesis with user flows, the sitemap, and contextual education for the MVP. My contribution gave the team a design rationale for what information to show before a request and how to represent the recycler’s response.",
+      "The business proposal focused on collection centers as a potential B2B customer for coordination and traceability. I considered how pickup quantities, route density, and material quality would affect the experience. Pricing and operating costs still need validation.",
+      "The project reached an MVP and a pilot plan. The next step is to test it in a small area with a collection center and a limited recycler group. Usability, classification accuracy, and environmental impact have not yet been measured."
     ],
     "learnings": [
       {
         "title": "Safety starts before pickup",
-        "description": "The field interview turned material preparation and risk information into core requirements. Better guidance should be evaluated through the quality of the material actually received."
+        "description": "The interview changed what I prioritized on the scan result: preparation steps and risk information. In a pilot, I would check whether those instructions lead to material arriving in better condition."
       },
       {
         "title": "Coordination requires autonomy",
-        "description": "Citizen-selected scheduling and an explicit recycler response make both sides visible. Telegram adoption and the 24-hour window still need field validation."
+        "description": "I made the recycler’s response a distinct part of the flow. This decision applies to services where a customer request depends on another person’s availability and acceptance."
       },
       {
         "title": "A useful flow needs viable operations",
-        "description": "Household convenience must be balanced with minimum pickup quantities, route density, center demand, and the cost of rewards."
+        "description": "I connected interface decisions to pickup quantities, route density, and reward costs. Those constraints need to shape the pilot before the service expands."
       }
     ],
     "metrics": [
@@ -509,61 +525,62 @@
         "description": "Record validated kilograms, rejected or contaminated material, cost per kilogram, and a second collection within 30 days."
       }
     ],
-    "takeaway": "Making recycling easier means designing the handoff as carefully as the interface."
+    "takeaway": "I can help a product team turn field research into service flows, explicit states, and UI specifications that give engineering a concrete starting point."
   },
   "process": {
     "0": {
       "title": "Discovery",
       "paragraphs": [
-        "I structured the research questions and recycler interview guide, then synthesized the team’s field interview and secondary research. The strongest direction came from connecting everyday preparation mistakes with the effort and risks faced by recyclers."
+        "I structured the research questions and recycler interview guide, then synthesized the team’s interview and secondary research. Contamination and missing information became design priorities: preparation guidance after scanning and material details before pickup acceptance."
       ],
       "image": {
-        "src": "/images/projects/ecogiro-faq.jpeg",
+        "src": "/images/projects/ecogiro-faq-full.png",
         "alt": "EcoGiro frequently asked questions about recycling, material preparation, collection, and eco-points.",
-        "width": 716,
-        "height": 1600,
-        "caption": "Discovery ? Contextual guidance"
+        "width": 275,
+        "height": 966,
+        "caption": "Discovery · Contextual guidance",
+        "scrollable": true
       }
     },
     "1": {
       "title": "UX / Structure",
       "paragraphs": [
-        "I mapped the citizen, recycler, and collection-center journeys and defined the MVP sitemap. The citizen flow moves from a photo to a request; Telegram gives the recycler information and a choice without requiring a dedicated EcoGiro app."
+        "I mapped the citizen, recycler, and collection-center journeys and defined the MVP sitemap. I separated sending a request from confirming collection and used Telegram as the proposed recycler channel. This gave the team a flow with explicit roles and response states."
       ],
       "image": {
         "src": "/images/projects/ecogiro-scan-result-3.jpeg",
         "alt": "EcoGiro scan result with environmental guidance, an estimated weight labeled as not measured, and the schedule collection action.",
         "width": 716,
         "height": 1600,
-        "caption": "UX / Structure ? From scan result to collection",
+        "caption": "UX / Structure · From scan result to collection",
         "scrollable": false
       }
     },
     "2": {
       "title": "UI Design",
       "paragraphs": [
-        "I translated the findings into contextual education and low-friction flows: short preparation instructions, one dominant scan action, visible request status, and eco-points after delivery. The UI direction uses familiar patterns to support the core journey across the two-month project."
+        "I translated the research into preparation guidance, a prominent scan action, and visible collection states. I documented recurring UI patterns so the same information and actions could stay consistent across screens."
       ],
       "image": {
         "src": "/images/projects/ecogiro-recollection.jpeg",
         "alt": "EcoGiro collection scheduling screen with a material summary, estimated weight, address, date, time slots, and an optional comment.",
         "width": 716,
         "height": 1600,
-        "caption": "UI Design ? Collection scheduling"
+        "caption": "UI Design · Collection scheduling"
       }
     },
     "3": {
       "title": "Validation plan",
       "paragraphs": [
-        "The MVP connects the core journey from identification to handoff. The next validation stage is a pilot to test whether citizens trust the classification, recyclers can respond through Telegram, the collection window is realistic, and enough material can be collected to make each trip worthwhile."
+        "I defined a pilot around the assumptions that could block the service: understanding the scan result, responding through Telegram, and completing a viable pickup. The plan tracks request completion, response time, material quality, and cost per kilogram."
       ],
       "image": {
-        "src": "/images/projects/ecogiro-recollection-agent.jpeg",
+        "src": "/images/projects/ecogiro-recovery-detail-full.png",
         "alt": "EcoGiro completed collection detail showing collected status, date, material description, address, and recycler rating.",
-        "width": 716,
-        "height": 1600,
-        "caption": "Validation plan ? Collection status to evaluate",
-        "scrollable": false
+        "width": 275,
+        "height": 818,
+        "caption": "Validation plan · Collection status to evaluate",
+        "scrollable": true
       }
     }
   }
