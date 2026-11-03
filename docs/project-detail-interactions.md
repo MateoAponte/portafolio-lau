@@ -48,3 +48,25 @@ Verificación realizada:
 verificar: Vite falló por acceso del sandbox y la ejecución externa no fue
 autorizada. Dispositivos táctiles físicos no verificados; se probaron anchos de
 viewport y navegación por teclado y ratón.
+
+## Distribución de estrellas
+
+Refinamiento con design-taste-frontend sobre la composición existente, sin cambiar
+la dirección visual. Las estrellas ocupan los márgenes libres y enmarcan el caso.
+
+Se reemplazaron las coordenadas repetidas por intervalos verticales independientes
+para cada lado. La posición horizontal recorre el margen disponible con una
+secuencia determinista, sin recolocarse en cada render. El margen reserva espacio
+para el giro de las figuras. En tablet y móvil se reducen las estrellas a 12 px.
+
+Se mantienen las cantidades: EcoGiro, 120 (45 a la izquierda, 75 a la derecha);
+MiFarma, 60 (30 por lado). EcoGiro asigna verde y mint por lado para evitar que un
+margen quede compuesto únicamente por estrellas casi invisibles. La landing
+conserva sus coordenadas y colores anteriores.
+
+Verificación final: `npx tsc -b` y `check-detail-interactions.mjs --stars`.
+Se revisaron las 18 capturas de overview, Process y sistema de ambos proyectos
+a 1440, 768 y 390 px. En los seis escenarios: sin estrellas solapadas, sin
+invadir la columna de contenido ni salir del viewport. Se comprobó el giro GSAP
+y su detención al activar movimiento reducido. El alcance es la composición de
+partículas; no se ejecutó una nueva auditoría global de diseño ni producción.

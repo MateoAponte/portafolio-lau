@@ -43,7 +43,7 @@ export function ProjectDetailView({ project: source }: { project: Project }) {
   const next = projects[(projects.findIndex(item => item.slug === project.slug) + 1) % projects.length];
   return (
     <main className={`case-study theme-${project.theme}`} data-view="project-detail" data-project={isMifarma ? "mifarma" : source.slug} ref={scope}>
-      {hasParticles && <StarParticles evenlySpaced count={source.slug === "ecogiro" ? 90 : 60} />}
+      {hasParticles && <StarParticles evenlySpaced count={source.slug === "ecogiro" ? 90 : 60} extraRightCount={source.slug === "ecogiro" ? 30 : 0} />}
       <CompactNavigation detailSlug={project.slug} />
       <nav className="case-nav" aria-label={t("Case study navigation")}><a href="#introduction"><ChevronLeft size="1em" aria-hidden="true" />{t("Back to home")}</a><span>{t(overview?.name ?? `${project.name} · ${project.year}`)}</span></nav>
       <article>

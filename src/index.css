@@ -22,7 +22,7 @@ body { margin: 0; min-width: 320px; overflow-x: clip; }
 .back-to-top {
   position: fixed;
   right: max(var(--layout-gutter), env(safe-area-inset-right));
-  bottom: max(3.5rem, env(safe-area-inset-bottom));
+  bottom: max(4.5rem, env(safe-area-inset-bottom));
   z-index: 40;
   display: grid;
   place-items: center;
@@ -710,13 +710,24 @@ body:has(.case-study[data-project="mifarma"]) { background: #f6f6f6; }
 .case-study[data-project="mifarma"] .case-closing { background: #e4f8ff; }
 .case-study[data-project="mifarma"] :is(.case-design-segment + .case-design-segment, .case-outcome-takeaway) { border-top-color: #47728226; }
 .case-study[data-project="mifarma"] ::selection { background: #6cb79b; color: #000; }
-.case-study:is([data-project="mifarma"], [data-project="ecogiro"]) .star-particles { left: calc(50% - 50vw); right: auto; width: 100vw; }
+.case-study:is([data-project="mifarma"], [data-project="ecogiro"]) .star-particles {
+  --star-rail: max(1.5rem, calc((100vw - var(--layout-max-width)) / 2));
+  --star-inset: 1.125rem;
+  left: calc(50% - 50vw); right: auto; width: 100vw;
+}
+.case-study .star-particles--dispersed .background-star {
+  left: calc(var(--star-inset) + var(--star-spread) * (var(--star-rail) - 2 * var(--star-inset)));
+  translate: -50% 0;
+}
+.case-study .star-particles--dispersed .background-star[data-side="right"] {
+  left: calc(100% - var(--star-inset) - var(--star-spread) * (var(--star-rail) - 2 * var(--star-inset)));
+}
 .case-study[data-project="mifarma"] .background-star { color: #1d828c; opacity: .5; }
 .case-study[data-project="mifarma"] .background-star:nth-child(3n) { color: #477282; }
 .case-study[data-project="mifarma"] .background-star:nth-child(3n + 1) { color: #6cb79b; }
-@media (max-width: 600px) {
-  .case-study:is([data-project="mifarma"], [data-project="ecogiro"]) .background-star { display: block; left: 1% !important; max-width: 14px; max-height: 14px; opacity: .34; }
-  .case-study:is([data-project="mifarma"], [data-project="ecogiro"]) .background-star:nth-child(even) { left: calc(100% - 18px) !important; }
+@media (max-width: 1000px) {
+  .case-study:is([data-project="mifarma"], [data-project="ecogiro"]) .star-particles { --star-inset: .625rem; }
+  .case-study:is([data-project="mifarma"], [data-project="ecogiro"]) .background-star { display: block; max-width: 12px; max-height: 12px; opacity: .34; }
 }
 
 /* EcoGiro's palette is scoped to its case study and persistent controls. */
@@ -754,7 +765,7 @@ body:has(.case-study[data-project="ecogiro"]) .language-toggle {
 .case-study[data-project="ecogiro"] ::selection { background: var(--color-status-active); color: var(--color-text-primary); }
 .case-study[data-project="ecogiro"] { position: relative; isolation: isolate; }
 .case-study[data-project="ecogiro"] .background-star { color: #1e8f5b; }
-.case-study[data-project="ecogiro"] .background-star:nth-child(even) { color: #f0f9f6; }
+.case-study[data-project="ecogiro"] .background-star[data-tone="soft"] { color: #f0f9f6; }
 body:has(.case-study[data-project="ecogiro"]) .language-toggle button:hover:not([aria-pressed="true"]) { background: var(--project-surface); }
 .case-study[data-project="ecogiro"] .case-overview-phone { max-width: 290px; }
 .case-study[data-project="ecogiro"] .case-value .process-mockup-scroll--static > img { width: 100%; height: 100%; object-fit: fill; }
